@@ -2,31 +2,50 @@ JVM(java Virtual Machine)
 --------------------------
 JVM is part of JRE
 
-JVM Memory
-    Method Area-- Heap--- JVM Language Stack-- PC register-- Native Method Stack
 
-    Method Area(PermGen):- Class related info. class name ,
-                    parent class name, method, member variable , static varible
-                    Its a shared resource. Method area is also term as perm space.
-    Heap:-  Object . Shared Resource
-    Stack :-  Thread specific  variable .
-    PC register :- address of next instruction to execute
-    Native method stack: stack native method
+Classloader Subsystem
 
-    note:- static variable is part of MethodArea(permGen) as it is part of class not instance.
+    classloader -- linking -- initialize
 
-
-Classloader
     Classloader is responsible for loading class at runtime.
 
     There are three level of classloader:-
         1. BootStrap classloader written in native code.
-            load core class from /jre/lib
+            load core class from /jre/lib    internal class (rt.jar)
         2. Extension classloader
             path:- /jre/lib/ext
                 or from java.ext.dirs system properties
         3. System/application classloader
                 from classPath
+
+     Linking
+        Verify :- Verify if byte code is proper java byte code. Magic number check is there
+        Prepare :- memory Allocation to class variable like static not instance variable. and assign default value
+        Resolve :- All symbolic representation inside class get assign to actual value. Like constant variable class x refer to class y
+
+      Initialize
+            All class variable like static get initialized to value as in code.
+
+Runtime Data Area
+  JVM Memory
+    Method Area-- Heap--- JVM Language Stack-- PC register-- Native Method Stack
+
+    Method Area(PermGen):- Class related info. class name ,
+                    parent class name, method, member variable , static varible
+                    Its a shared resource. Method area is also term as perm space.
+                    Default size is 64MB
+                    can be tune using -XX:MaxPermSize
+
+              From java 8 there is no PermGen  , there is metaSpace which is part of native OS. and can grow/shrink on demand.
+    Heap:-  Object . Shared Resource
+            Can be tune using -Xms -Xmx
+    Stack :-  Stack frame of each thread .Stack frame consist frame local variable, parameter , return variable
+                Can be tune using -Xss
+    PC register :- Program counter of address of next instruction to execute per thread
+    Native method stack: stack of native method(C,C++)
+
+    note:- static variable is part of MethodArea(permGen) as it is part of class not instance.
+
 
 Execution Engine
     1. Interpreter
@@ -39,12 +58,43 @@ Execution Engine
     JIT
          Store the native code after interpretation. so same method is called multiple time. interpreter will run once.
 
-    Garbage Collector
-        1. Serial Collector  :- Single Thread. STW(stop the world)
+    Garbage Collector  MDC( Mark, Delete, Compact)
+
+
+        1. Serial Collector  :- Single Thread. STW(stop the world) for MDC
         2. Parallel collector:- Multiple Thread . Default Collector
-        3. CMS(concurrent mark and sweep)  - In addition to parallel collector. It runs in parallel with application.
-            STW is called while initialization and change in Heap State. Full GC run in concurrent with application.
+        3. CMS(concurrent mark and sweep)  -  It runs in parallel with application.
+            STW is called only during mark and remark. Full GC run in concurrent with application with delete and compact steps.
+
+            for 1-3 Heap is divided into
+            Young Generation --  Old Generation
+
+            Young Generation is further divided into
+            Eden - S1(survivor one) - S2(survivor two)
+
+            Minor GC run in Young Generation. And whatever object survive move to Survivor region.
+            After surviving for a threshold object is move to Old Generation.
+
+            Major GC run when old generation is nearly full. Full GC runs on entire heap region. So will take more time to complete.
+
         4. G1 Collector(garbage first)
-            Suitable for Heap Size greater than 4GB.
+            Divide the memory into small region. SO whatever region has more unreachable object/garbage is collected first.
+            There is no Generation concept in G1 Collector.
+            Mark happens concurrent with Application.
+            Few object is collected causes shorter pause.
+            Compaction is happen by moving all live object in empty region.
+                Major improvement in G1 after jdk 8
+                ---  string de-duplication
+                ---  class unloading after concurrent cycle.
+                ---  More effective pause
+                ---- Eager reclamation of humongous object
+                --   Adaptive start of concurrent cycle
+
+
+
+            Upto 1.6   Default is Parallel collector
+            1.7  Default is G1
+
+Visual VM tool can be use for visualizing GC
 
 

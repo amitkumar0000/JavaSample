@@ -45,8 +45,8 @@ public class Main {
         System.out.println("Classloader of this class:"
                 + Main.class.getClassLoader());
 
-        System.out.println("Classloader of Logging:"
-                + System.class.getClassLoader());
+        System.out.println("Classloader of CustomClassloader:"
+                +  CustomClassloader.class.getClassLoader());
 
         System.out.println("Classloader of ArrayList:"
                 + ArrayList.class.getClassLoader());
