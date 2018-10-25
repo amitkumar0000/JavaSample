@@ -1,0 +1,50 @@
+JVM(java Virtual Machine)
+--------------------------
+JVM is part of JRE
+
+JVM Memory
+    Method Area-- Heap--- JVM Language Stack-- PC register-- Native Method Stack
+
+    Method Area(PermGen):- Class related info. class name ,
+                    parent class name, method, member variable , static varible
+                    Its a shared resource. Method area is also term as perm space.
+    Heap:-  Object . Shared Resource
+    Stack :-  Thread specific  variable .
+    PC register :- address of next instruction to execute
+    Native method stack: stack native method
+
+    note:- static variable is part of MethodArea(permGen) as it is part of class not instance.
+
+
+Classloader
+    Classloader is responsible for loading class at runtime.
+
+    There are three level of classloader:-
+        1. BootStrap classloader written in native code.
+            load core class from /jre/lib
+        2. Extension classloader
+            path:- /jre/lib/ext
+                or from java.ext.dirs system properties
+        3. System/application classloader
+                from classPath
+
+Execution Engine
+    1. Interpreter
+    2. JIT compiler(Just in time)
+    3. Garbage Collector
+
+    Interpreter
+        Byte code is interpreter into native code. Disadvantage: if same method is called multiple times
+                interpreter will be called each time
+    JIT
+         Store the native code after interpretation. so same method is called multiple time. interpreter will run once.
+
+    Garbage Collector
+        1. Serial Collector  :- Single Thread. STW(stop the world)
+        2. Parallel collector:- Multiple Thread . Default Collector
+        3. CMS(concurrent mark and sweep)  - In addition to parallel collector. It runs in parallel with application.
+            STW is called while initialization and change in Heap State. Full GC run in concurrent with application.
+        4. G1 Collector(garbage first)
+            Suitable for Heap Size greater than 4GB.
+
+
