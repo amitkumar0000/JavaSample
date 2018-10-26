@@ -79,7 +79,7 @@ Execution Engine
 
         4. G1 Collector(garbage first)
             Divide the memory into small region. SO whatever region has more unreachable object/garbage is collected first.
-            still has Generation concept in G1 Collector.
+           Generation concept prevails here also
             
             most object allocation happen in eden region. it follow same concept as above. 
             if object size >= 50% size of G1 region. Object is stored in one Old generation region and know as
@@ -87,9 +87,16 @@ Execution Engine
            
            It maintain collection set(set of young region)
                         mixed set (set of all young region and few old region)
-                        
-            Mark and remarking causes STW.
-            Few object is collected causes shorter pause.
+                        Remember Set keep track of objects.
+        A garbage collector (GC) is a memory management tool.
+        The G1 GC achieves automatic memory management through the following operations:
+
+        Allocating objects to a young generation and promoting aged objects into an old generation.
+        Finding live objects in the old generation through a concurrent (parallel) marking phase. 
+        The Java HotSpot VM triggers the marking phase when the total Java heap occupancy exceeds the default threshold.
+        Recovering free memory by compacting live objects through parallel copying.      
+        Few object is collected causes shorter pause.
+        
             Compaction is happen by moving all live object in empty region.
                 Major improvement in G1 after jdk 8
                 ---  string de-duplication
