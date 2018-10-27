@@ -1,4 +1,6 @@
 import classloader.CustomClassloader;
+import exceptionhandler.ExceptionSample;
+import exceptionhandler.UserDefinedException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -9,9 +11,19 @@ public class Main {
     static String name = "amit";
     String age;
     public static void main(String[] args)  {
-        System.out.println("Hello World!");
+        System.out.println("Hello World Enter");
 
 
+//        customClassloaderDemo();
+
+        exceptionHandlerDemo();
+
+
+        System.out.println("Hello World Exit");
+
+    }
+
+    private static void customClassloaderDemo() {
         try {
             printClassLoaders();
         } catch (ClassNotFoundException e) {
@@ -19,6 +31,30 @@ public class Main {
         }
 
         customClassLoader();
+    }
+
+    private static void exceptionHandlerDemo() {
+//        exceptionSampleDemo();
+        userDefinedException();
+    }
+
+    private static void userDefinedException() {
+        UserDefinedException myException = new UserDefinedException("This is User Defined Exception");
+
+        try{
+            String name = "Hello";
+            if(!name.equals("User"))
+                throw myException;
+        }catch (UserDefinedException exception){
+            System.out.println("User Defined Exception is thrown:: "+ exception.getMessage());
+            exception.printStackTrace();
+        }
+
+    }
+
+    private static void exceptionSampleDemo() {
+        ExceptionSample exceptionSample = new ExceptionSample();
+        exceptionSample.func1();
     }
 
     private static void customClassLoader() {

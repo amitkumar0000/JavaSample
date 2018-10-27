@@ -1,0 +1,49 @@
+
+Exception and Error is child class of Throwable.
+
+           Object
+                1. Throwable
+                    1.1 Exception
+                        1.1.1 Checked Exception
+                            e.g IO or Compile Time Exception
+                        1.2.2 UnChecked Exception
+                            e.g Runtime or NullPointer Exception
+                    1.2 Error
+                        1.2.1 Virtual Machine Error (stack Overflow)
+                        1.2.2 Assertion Error etc
+
+Default Exception Handling
+--------------------------
+Whenever inside a method, an exception occur,
+method create an exception object and handover to java run time machine(JVM).
+Java run time system trace the Call Stack(ordered list of method from where this method is get called)
+and find the method which handle the exception raised.
+If no method is match with exact exception type,
+then exception object is handover to default exception handler which is part of run time system
+and program terminate abnormally.
+
+Five Keywords:
+--------------
+try
+catch
+throw
+throws
+finally
+
+finally
+==========
+finally block is always executed after try block even return get called in try and catch block.
+There is only way not to call finally block, by stopping thread or calling System.exit()
+Besides a System.exit(), the finally block will not run if the JVM crashes for some reason (e.g. infinite loop in your try block)
+
+As far as the thread itself, only if it is stopped using the stop() method (or suspend() without resume())
+will the finally block not be executed. A call to interrupt() will still result in the finally block being executed.
+
+Types of Exception
+-------------------
+    1. Built-in Exception
+    2. User-defined Exception
+
+
+
+
