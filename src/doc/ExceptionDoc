@@ -44,6 +44,8 @@ Types of Exception
     1. Built-in Exception
     2. User-defined Exception
 
+Derived Class Base Class Catch Exception
+    catching a base class exception before derived is not allowed .
 
 
 

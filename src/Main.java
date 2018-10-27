@@ -1,4 +1,6 @@
 import classloader.CustomClassloader;
+import exceptionhandler.Base;
+import exceptionhandler.Derived;
 import exceptionhandler.ExceptionSample;
 import exceptionhandler.UserDefinedException;
 
@@ -16,11 +18,28 @@ public class Main {
 
 //        customClassloaderDemo();
 
+        baseDerivedException();
+
         exceptionHandlerDemo();
 
 
         System.out.println("Hello World Exit");
 
+    }
+
+    private static void baseDerivedException() {
+        String name = "BaseDerivedDemo";
+        //Derived Class catch block will always come before Base Class
+
+        try{
+            if(!name.equals("Demo"))
+                throw new Base("Hi I am Base exception");
+
+        } catch (Derived d){
+            System.out.println("D:: "+ d.getMessage());
+        }catch (Base e){
+            System.out.println("B:: "+e.getMessage());
+        }
     }
 
     private static void customClassloaderDemo() {
@@ -45,10 +64,12 @@ public class Main {
             String name = "Hello";
             if(!name.equals("User"))
                 throw myException;
+
         }catch (UserDefinedException exception){
             System.out.println("User Defined Exception is thrown:: "+ exception.getMessage());
             exception.printStackTrace();
-        }finally {
+        }
+        finally {
             System.out.println("Hi I am finally block");
         }
 
