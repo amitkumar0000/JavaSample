@@ -66,7 +66,7 @@ Execution Engine
         3. CMS(concurrent mark and sweep)  -  It runs in parallel with application.
             STW is called only during mark and remark. Full GC run in concurrent with application with delete and compact steps.
 
-            for 1-3 Heap is divided into
+            Heap is divided into
             Young Generation --  Old Generation
 
             Young Generation is further divided into
@@ -79,9 +79,24 @@ Execution Engine
 
         4. G1 Collector(garbage first)
             Divide the memory into small region. SO whatever region has more unreachable object/garbage is collected first.
-            There is no Generation concept in G1 Collector.
-            Mark happens concurrent with Application.
-            Few object is collected causes shorter pause.
+           Generation concept prevails here also
+            
+            most object allocation happen in eden region. it follow same concept as above. 
+            if object size >= 50% size of G1 region. Object is stored in one Old generation region and know as
+           humongous object. if object size > size of G1 region. Object is stored in old generation region.
+           
+           It maintain collection set(set of young region)
+                        mixed set (set of all young region and few old region)
+                        Remember Set keep track of objects.
+        A garbage collector (GC) is a memory management tool.
+        The G1 GC achieves automatic memory management through the following operations:
+
+        Allocating objects to a young generation and promoting aged objects into an old generation.
+        Finding live objects in the old generation through a concurrent (parallel) marking phase. 
+        The Java HotSpot VM triggers the marking phase when the total Java heap occupancy exceeds the default threshold.
+        Recovering free memory by compacting live objects through parallel copying.      
+        Few object is collected causes shorter pause.
+        
             Compaction is happen by moving all live object in empty region.
                 Major improvement in G1 after jdk 8
                 ---  string de-duplication
@@ -90,11 +105,6 @@ Execution Engine
                 ---- Eager reclamation of humongous object
                 --   Adaptive start of concurrent cycle
 
-
-
             Upto 1.6   Default is Parallel collector
             1.7  Default is G1
-
 Visual VM tool can be use for visualizing GC
-
-
