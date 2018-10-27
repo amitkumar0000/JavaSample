@@ -7,7 +7,12 @@ public class CheckedUnCheckedException {
 
      */
     public void throwsRuntimeException() {
-        int y = 1/0;
+        try {
+            int y = 1 / 0;
+        }catch (NullPointerException e){
+            System.out.println("Caught inside throwsRuntimeException");
+
+        }
     }
 
     public void throwsCheckException() throws Base {

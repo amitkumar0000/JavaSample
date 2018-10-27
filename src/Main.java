@@ -30,8 +30,8 @@ public class Main {
         CheckedUnCheckedException exception = new CheckedUnCheckedException();
         try {
             exception.throwsRuntimeException();
-        }catch (ArithmeticException e){
-
+        }catch (Exception e){
+            System.out.println("Caught inside checkedUncheckedException");
         }
 
         try {

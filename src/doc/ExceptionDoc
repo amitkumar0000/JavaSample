@@ -59,3 +59,12 @@ UnChecked Exception :
 
 Rationale behind checked and unchecked exception :- if can recover from failure ,checked exception else unchecked.
 
+Throw and Throws
+================
+throw keyword is used to throw any checked exception.
+It is mostly used for custom exception.
+
+throws keyword is used as part of method signature to notify caller party to handle exception.
+either caller party can add throws or try catch the exception
+
+
