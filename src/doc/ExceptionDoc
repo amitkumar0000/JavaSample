@@ -47,5 +47,15 @@ Types of Exception
 Derived Class Base Class Catch Exception
     catching a base class exception before derived is not allowed .
 
+Checked And Unchecked Exception
+--------------------------------
+Checked Exception which got checked at compile time.
+Unchecked Exception which does not get checked at compile time
 
+UnChecked Exception :
+        Error:
+        Runtime Exception:
+                    Arithmetic Exception
+
+Rationale behind checked and unchecked exception :- if can recover from failure ,checked exception else unchecked.
 

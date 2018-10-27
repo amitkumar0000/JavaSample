@@ -1,8 +1,5 @@
 import classloader.CustomClassloader;
-import exceptionhandler.Base;
-import exceptionhandler.Derived;
-import exceptionhandler.ExceptionSample;
-import exceptionhandler.UserDefinedException;
+import exceptionhandler.*;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -12,7 +9,7 @@ public class Main {
 
     static String name = "amit";
     String age;
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         System.out.println("Hello World Enter");
 
 
@@ -22,9 +19,28 @@ public class Main {
 
         exceptionHandlerDemo();
 
+        checkedUncheckedException();
+
 
         System.out.println("Hello World Exit");
 
+    }
+
+    private static void checkedUncheckedException() {
+        CheckedUnCheckedException exception = new CheckedUnCheckedException();
+        try {
+            exception.throwsRuntimeException();
+        }catch (ArithmeticException e){
+
+        }
+
+        try {
+            exception.throwsCheckException();
+        } catch (Base base) {
+            base.printStackTrace();
+        }
+
+        System.out.println("Checked Unchecked Exception");
     }
 
     private static void baseDerivedException() {
@@ -55,6 +71,14 @@ public class Main {
     private static void exceptionHandlerDemo() {
 //        exceptionSampleDemo();
         userDefinedException();
+
+        thowsDemo();
+    }
+
+    private static void thowsDemo()  {
+        ExceptionSample sample = new ExceptionSample();
+
+        sample.func4();
     }
 
     private static void userDefinedException() {

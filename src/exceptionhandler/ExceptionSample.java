@@ -42,4 +42,20 @@ public class ExceptionSample {
             System.out.println(name);
         }
     }
+
+    public void func4()  {
+
+        throwdemo();
+    }
+
+    public void throwdemo()  {
+        try {
+            throw new Base("Hello I am Base throw ");
+        }catch (Base e) {
+             System.out.println("Hello ");
+        }
+        finally {
+            System.out.println("Hello finally");
+        }
+    }
 }
