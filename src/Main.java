@@ -48,6 +48,8 @@ public class Main {
         }catch (UserDefinedException exception){
             System.out.println("User Defined Exception is thrown:: "+ exception.getMessage());
             exception.printStackTrace();
+        }finally {
+            System.out.println("Hi I am finally block");
         }
 
     }
