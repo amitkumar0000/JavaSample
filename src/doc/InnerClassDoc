@@ -1,0 +1,34 @@
+Nested Class
+    ---  Static nested class
+    ---  inner class
+            1) Nested Inner class
+            2) Method Local inner classes
+            3) Anonymous inner classes
+            4) Static nested classes
+
+
+    Static class
+        Static class has access to static member of enclosing class.
+        The object of static class can be created without enclosing class object.
+        As  EnclosingClassName.StaticClassName obj = new EnclosingClassName.StaticClassName()
+
+        Static Class should not be created within block else it will give compilation error.
+
+    Local Inner Class
+        Local inner class are defined inside a block and has scope within block,
+        Local inner class must be instantiated within the block it define
+
+        Till Java 7 Local inner class can access only final local variable of enclosing class.
+        From java 8 non-final local variable of enclosing data can also be access.
+
+        Local class can extend abstract class or implements interface
+
+        Local inner class can't be declared static if defined with method , if blocks,
+
+        Local Inner class can't have static Method.
+
+
+    Anonymous Inner Class
+        Anonymous inner class can be specified in two ways:
+            1. As subclass of specified type.
+            2. As implementer of the specified interface

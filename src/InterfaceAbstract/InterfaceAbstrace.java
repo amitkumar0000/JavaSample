@@ -10,4 +10,9 @@ public class InterfaceAbstrace extends AbstractDemo implements  in1 {
 
         display();
     }
+
+    @Override
+    public void displayIn() {
+
+    }
 }

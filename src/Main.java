@@ -2,6 +2,9 @@ import InterfaceAbstract.ComparatorDemo;
 import InterfaceAbstract.InterfaceAbstrace;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
+import nestedClass.AnonymousInnerClass;
+import nestedClass.LocalInnerClass;
+import nestedClass.StaticInnerClass;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -28,8 +31,31 @@ public class Main {
 
           interfaceAbstractDemo();
 
+          nestedClassDemo();
+
         System.out.println("Hello World Exit");
 
+    }
+
+    private static void nestedClassDemo() {
+        staticClassDemo();
+        LocalInnerClassDemo();
+        AnonymousInnerClassDemo();
+    }
+
+    private static void AnonymousInnerClassDemo() {
+        AnonymousInnerClass anonymousInnerClass = new AnonymousInnerClass();
+
+    }
+
+    private static void LocalInnerClassDemo() {
+        LocalInnerClass innerClass  = new LocalInnerClass();
+
+    }
+
+    private static void staticClassDemo() {
+        StaticInnerClass.StaticNestedClass staticNestedClass = new StaticInnerClass.StaticNestedClass();
+        staticNestedClass.display();
     }
 
     private static void interfaceAbstractDemo() {

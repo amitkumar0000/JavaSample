@@ -15,7 +15,8 @@ public  interface in1 {
 
     private void displayA1(){
         System.out.println("From Java 8 Printing from  Private method can be defined :: "+aIn);
-
     }
+
+    void displayIn();
 
 }
