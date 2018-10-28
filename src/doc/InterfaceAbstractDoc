@@ -49,3 +49,16 @@ Consider using abstract classes if any of these statements apply to your situati
 It is total abstraction, All methods declared within an interface must be implemented by the class(es) that implements this interface.
     A class can implement more than one interface. It is called multiple inheritance.
     You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
+
+
+Comparator Interface
+-----------------------
+1. Comparator interface is used to sort User-defined object.
+2. Comparator interface is external to class.
+3. It can sort based on multiple member variable
+
+Comparable Interface
+--------------------
+1. Comparable interface provide ability to class to sort itself
+2. Class need to implement this interface and override CompareTo method.
+3. This can sort class object based on only one member variable.

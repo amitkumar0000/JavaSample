@@ -1,3 +1,4 @@
+import InterfaceAbstract.ComparatorDemo;
 import InterfaceAbstract.InterfaceAbstrace;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
@@ -5,6 +6,9 @@ import exceptionhandler.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Main {
 
@@ -29,6 +33,51 @@ public class Main {
     }
 
     private static void interfaceAbstractDemo() {
+//        interfaceAbstraceD();
+        comparatorDemo();
+    }
+
+    private static void comparatorDemo() {
+        ArrayList<ComparatorDemo.Student> list = new ArrayList<>();
+        list.add(new ComparatorDemo.Student(2,"name9"));
+        list.add(new ComparatorDemo.Student(13,"name2"));
+        list.add(new ComparatorDemo.Student(1,"name8"));
+        list.add(new ComparatorDemo.Student(10,"name1"));
+        list.add(new ComparatorDemo.Student(5,"name3"));
+
+        Collections.sort(list,new ComparatorDemo.SortByName());
+
+//        Collections.sort(list); //Using Comparable Interface
+
+        System.out.println(" == Sort by Name=== ");
+
+        for(ComparatorDemo.Student student : list){
+            System.out.println(student.toString());
+        }
+
+//        Collections.sort(list,new ComparatorDemo.SortByRoll());
+
+        /*Collections.sort(list, new Comparator<ComparatorDemo.Student>() {
+
+            @Override
+            public int compare(ComparatorDemo.Student o1, ComparatorDemo.Student o2) {
+                return o1.rollno - o2.rollno;
+            }
+        });*/
+
+
+        Collections.sort(list , (o1,o2)-> o1.rollno-o2.rollno);
+
+        System.out.println(" == Sort by Roll No=== ");
+        for(ComparatorDemo.Student student : list){
+            System.out.println(student.toString());
+        }
+
+
+
+    }
+
+    private static void interfaceAbstraceD() {
         InterfaceAbstrace interfaceAbstrace = new InterfaceAbstrace();
         interfaceAbstrace.disp();
     }
