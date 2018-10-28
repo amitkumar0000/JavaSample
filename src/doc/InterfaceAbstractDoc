@@ -62,3 +62,12 @@ Comparable Interface
 1. Comparable interface provide ability to class to sort itself
 2. Class need to implement this interface and override CompareTo method.
 3. This can sort class object based on only one member variable.
+
+Function Interface
+===================
+Interface can have only one abstract method.
+It can have as many as default method.
+Runnable, ActionListener, Comparable are function interface.
+annotation : @FunctionInterface is used to give error if more than one abstract method is defined.
+
+
