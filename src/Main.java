@@ -1,3 +1,4 @@
+import InterfaceAbstract.InterfaceAbstrace;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
 
@@ -15,15 +16,21 @@ public class Main {
 
 //        customClassloaderDemo();
 
-        baseDerivedException();
+//        baseDerivedException();
 
-        exceptionHandlerDemo();
+//        exceptionHandlerDemo();
 
-        checkedUncheckedException();
+//        checkedUncheckedException();
 
+          interfaceAbstractDemo();
 
         System.out.println("Hello World Exit");
 
+    }
+
+    private static void interfaceAbstractDemo() {
+        InterfaceAbstrace interfaceAbstrace = new InterfaceAbstrace();
+        interfaceAbstrace.disp();
     }
 
     private static void checkedUncheckedException() {
