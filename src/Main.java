@@ -1,3 +1,4 @@
+import InterfaceAbstract.ClonnableInterfaceDemo;
 import InterfaceAbstract.ComparatorDemo;
 import InterfaceAbstract.InterfaceAbstrace;
 import classloader.CustomClassloader;
@@ -60,7 +61,17 @@ public class Main {
 
     private static void interfaceAbstractDemo() {
 //        interfaceAbstraceD();
-        comparatorDemo();
+//        comparatorDemo();
+        clonnableInterfaceDemo();
+    }
+
+    private static void clonnableInterfaceDemo() {
+        try {
+            ClonnableInterfaceDemo clonnableInterfaceDemo = new ClonnableInterfaceDemo();
+        }catch (CloneNotSupportedException e){
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
     private static void comparatorDemo() {

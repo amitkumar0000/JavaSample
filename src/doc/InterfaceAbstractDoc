@@ -70,4 +70,28 @@ It can have as many as default method.
 Runnable, ActionListener, Comparable are function interface.
 annotation : @FunctionInterface is used to give error if more than one abstract method is defined.
 
+Marker Interface
+-----------------
+Marker Interface are empty interface with no field and method.
+Cloneable, Serializable, Remote are marker interface.
+
+    Cloneable Interface
+         A class that implements the Cloneable interface indicates
+         that it is legal for clone() method to make a field-for-field copy of instances of that class.
+         Invoking Object’s clone method on an instance of the class that does not
+         implement the Cloneable interface results in an exception CloneNotSupportedException being thrown
+         By convention, classes that implement this interface should override Object.clone() method
+
+        Clone Method
+            Object cloning refers to creation of exact copy of an object.
+            It creates a new instance of the class of current object and
+            initializes all its fields with exactly the contents of the corresponding fields of this object.
+
+            Deep copy and shallow copy.
+            While cloning , changing in primitive type will not be reflected in another object
+            but changing a object type member will get reflected on all object.
+
+            To create a Deep copy, Store the super.clone return object in Object reference.
+            Create new member object using new via object reference.
+
 
