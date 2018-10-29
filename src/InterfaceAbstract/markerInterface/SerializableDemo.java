@@ -1,4 +1,4 @@
-package InterfaceAbstract;
+package InterfaceAbstract.markerInterface;
 
 import java.io.*;
 

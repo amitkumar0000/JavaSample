@@ -1,4 +1,4 @@
-package InterfaceAbstract;
+package InterfaceAbstract.markerInterface;
 
 public class ClonnableInterfaceDemo implements Cloneable {
 

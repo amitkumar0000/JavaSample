@@ -1,7 +1,9 @@
-import InterfaceAbstract.ClonnableInterfaceDemo;
+import InterfaceAbstract.markerInterface.ClonnableInterfaceDemo;
 import InterfaceAbstract.ComparatorDemo;
 import InterfaceAbstract.InterfaceAbstrace;
-import InterfaceAbstract.SerializableDemo;
+import InterfaceAbstract.markerInterface.SerializableDemo;
+import InterfaceAbstract.markerInterface.customMarkerInterface.FunctionalityMarkerInterface;
+import InterfaceAbstract.markerInterface.customMarkerInterface.ImplMarkerInterface;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
 import nestedClass.AnonymousInnerClass;
@@ -11,9 +13,7 @@ import nestedClass.StaticInnerClass;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class Main {
 
@@ -65,6 +65,13 @@ public class Main {
 //        comparatorDemo();
         clonnableInterfaceDemo();
         serializableDemo();
+
+        customMarkerInterfaceDemo();
+    }
+
+    private static void customMarkerInterfaceDemo() {
+        ImplMarkerInterface implMarkerInterface = new ImplMarkerInterface();
+        FunctionalityMarkerInterface.isMarker(implMarkerInterface);
     }
 
     private static void serializableDemo() {
