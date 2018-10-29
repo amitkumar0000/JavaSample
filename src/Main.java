@@ -1,6 +1,7 @@
 import InterfaceAbstract.ClonnableInterfaceDemo;
 import InterfaceAbstract.ComparatorDemo;
 import InterfaceAbstract.InterfaceAbstrace;
+import InterfaceAbstract.SerializableDemo;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
 import nestedClass.AnonymousInnerClass;
@@ -63,6 +64,12 @@ public class Main {
 //        interfaceAbstraceD();
 //        comparatorDemo();
         clonnableInterfaceDemo();
+        serializableDemo();
+    }
+
+    private static void serializableDemo() {
+        SerializableDemo serializableDemo = new SerializableDemo();
+        serializableDemo.serialDemo();
     }
 
     private static void clonnableInterfaceDemo() {

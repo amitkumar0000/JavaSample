@@ -94,4 +94,25 @@ Cloneable, Serializable, Remote are marker interface.
             To create a Deep copy, Store the super.clone return object in Object reference.
             Create new member object using new via object reference.
 
+    Serializable Interface
+        It make an object eligible to store it state in a file.
+        The ObjectOutputStream class contains writeObject() method for serializing an Object.
+        The ObjectInputStream class contains readObject() method for de-serializing an object.
+
+        Only the objects of those classes can be serialized which are implementing java.io.Serializable interface.
+        Serializable is a marker interface (has no data member and method).
+        It is used to “mark” java classes so that objects of these classes may get certain capability.
+
+        Only non-static data members are saved via Serialization process.
+
+         Static data members and transient data members are not saved via Serialization process.
+         So, if you don’t want to save value of a non-static data member then make it transient.
+
+         Constructor of object is never called when an object is de-serialized
+
+         SerialVersionUID is a version number that serialization runtime associate with serializable class.
+         which is used during Deserialization to verify that sender and
+         receiver of a serialized object have loaded classes for that object which are compatible with respect to serialization
+         If the receiver has loaded a class for the object that has different UID than that of corresponding
+         sender’s class, the Deserialization will result in an InvalidClassException.
 
