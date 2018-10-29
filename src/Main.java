@@ -31,12 +31,23 @@ public class Main {
 
 //        checkedUncheckedException();
 
-          interfaceAbstractDemo();
+//          interfaceAbstractDemo();
 
-          nestedClassDemo();
+//          nestedClassDemo();
+
+        cutomImmutableClass();
 
         System.out.println("Hello World Exit");
 
+    }
+
+    private static void cutomImmutableClass() {
+        MyImmutable myImmutable = new MyImmutable("Kuju","Ramgarh","Ramgarh");
+
+        myImmutable.getAddress().setCity("Ranchi"); //This will create new Object with city Ranchi without any alter in myImmutable object
+
+        System.out.println(myImmutable.getName() +" "+ myImmutable.getAddress().getCity() +
+                " "+myImmutable.getAddress().getDistrict());
     }
 
     private static void nestedClassDemo() {

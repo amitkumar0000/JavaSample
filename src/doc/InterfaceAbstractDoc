@@ -73,6 +73,8 @@ annotation : @FunctionInterface is used to give error if more than one abstract 
 Marker Interface
 -----------------
 Marker Interface are empty interface with no field and method.
+It is instruction to JVM to perform some special operation on the object of this class.
+Marker Interface is also known as tagging interface
 Cloneable, Serializable, Remote are marker interface.
 
     Cloneable Interface
