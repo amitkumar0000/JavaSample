@@ -4,6 +4,7 @@ import InterfaceAbstract.InterfaceAbstrace;
 import InterfaceAbstract.markerInterface.SerializableDemo;
 import InterfaceAbstract.markerInterface.customMarkerInterface.FunctionalityMarkerInterface;
 import InterfaceAbstract.markerInterface.customMarkerInterface.ImplMarkerInterface;
+import annotation.AnnotationDemo;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
 import nestedClass.AnonymousInnerClass;
@@ -37,17 +38,32 @@ public class Main {
 
         cutomImmutableClass();
 
+        annotationDemo();
+
         System.out.println("Hello World Exit");
 
     }
 
+    @SuppressWarnings({"checked", "deprecation"})
+    private static void annotationDemo() {
+        AnnotationDemo annotationDemo = new AnnotationDemo();
+    }
+
     private static void cutomImmutableClass() {
-        MyImmutable myImmutable = new MyImmutable("Kuju","Ramgarh","Ramgarh");
+        Address address = new Address("Ramgarh","Ramgarh");
+        MyImmutable myImmutable = null;
+        try {
+            myImmutable = new MyImmutable("Kuju","Ramgarh","Ramgarh",address);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
 
         myImmutable.getAddress().setCity("Ranchi"); //This will create new Object with city Ranchi without any alter in myImmutable object
 
+        myImmutable.getAddresG().setCity("Ranchi");
+
         System.out.println(myImmutable.getName() +" "+ myImmutable.getAddress().getCity() +
-                " "+myImmutable.getAddress().getDistrict());
+                " "+myImmutable.getAddress().getDistrict() +" "+ myImmutable.getAddresG().getCity()) ;
     }
 
     private static void nestedClassDemo() {

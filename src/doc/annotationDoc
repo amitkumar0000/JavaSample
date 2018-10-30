@@ -1,0 +1,70 @@
+Annotation start with @
+Annotation associate metadata to the program elements.
+Annotation are not pure comments as they change the way program is treated by compiler.
+Annotation can be used with class, method, variable.
+
+Categories of Annotation
+======================
+1. Marker Annotation
+    Example: - @TestAnnotation()
+
+2. Single Value Annotation
+    Example: - @TestAnnotation(“testing”);
+
+3. Full annotation
+    Example:- @TestAnnotation(owner=”Amit”, value=”Class Geeks”)
+
+Java define seven built-in annotation
+    @Override @Deprecated @SuppressWarning
+    @Documented @Target @inherited @Retention
+
+
+@Deprecated
+    It is marker Annotation that indicate declaration is obsolete.
+    @deprecated tags for javadoc and @Deprecated for Runtime Reflection.
+@Override
+    Marker Annotation that indicate superclass method is overridden not overloaded.
+    Apply only to method.
+@SuppressWarning
+    Used to suppress compiler warning. The warning to suppress are specified by name in string format.
+    Java group warning into two group:
+        Unchecked
+            Any unchecked warning is generated when a legacy code interfaces with a code that use generics
+        Deprecation
+
+
+@Documented
+    @Documented is a meta-annotation.
+    You apply @Documented when defining an annotation,
+    to ensure that classes using your annotation show this in their generated JavaDoc
+
+    @Documented
+    @interface myAnnotation{}
+
+@Target
+    like Document @Target is meta-annotation.
+    Applied to annotation,  it takes one argument and tell where this annotation to apply
+    such as applied to constructor, class or methods.
+    ElementType.Type define it can apply to class only.
+    Apply in method will yield compilation error.
+    We can method more than one target in curly braces Separated by commas.
+
+@Retention
+    Same as above, it is meta-annotation
+    It determine where and how long the annotation is retent.
+    Retention can have three values:-
+         Source, Class, Runtime
+         Source:- Retained at source level and ignored by compiler.
+         Class:- Retained at class level and ignored by JVM
+         Runtime:- these will retained at runtime.
+
+@inherited
+    It is marker annotation apply only on annotation
+    This annotation can only apply to Class level annotation.
+    It inform superclass annotation will be pass to subclass class.
+
+
+
+
+
+

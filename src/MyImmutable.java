@@ -1,11 +1,19 @@
-/* make class final so that no class can inherit it */
+/*
+    Make class final so that no class can inherit it .
+    Make all member variable final so they can initialize only once.
+    Make deep copy of all object member variable in Constructor.
+    Return clone object on getter.
+    Provide no setter method.
+*/
 public final class MyImmutable {
     private final String name;
     private final Address address;
+    private final Address addresG;
 
-    public MyImmutable(String name, String city, String district){
+    public MyImmutable(String name, String city, String district, Address address) throws CloneNotSupportedException {
         this.name = name;
-        address = new Address(city,district);
+        this.address = new Address(city,district);
+        addresG = (Address)address.clone();
     }
 
     public String getName() {
@@ -24,6 +32,16 @@ public final class MyImmutable {
         }
 
         return add;
+    }
+
+    public Address getAddresG() {
+        Address addressX = null;
+        try {
+            addressX = (Address)addresG.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return addressX;
     }
 }
 
