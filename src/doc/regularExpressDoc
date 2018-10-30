@@ -1,0 +1,35 @@
+Regular Expression
+    It is generalised way to match pattern with sequence of characters.
+
+Repeater *, + and {}
+
+    * :- It tells the compiler that preceding character occur 0 or more times
+         e.g ab*c  abbc  abc ac abbbbc
+    + :- It tells the compiler that preceding character occur 1 or more times.
+        e.g ab+c  abc abbc abbbc
+    {} :- It tells the number of times preceding character occur
+          {2} exactly 2times
+          {2, } min 2 times
+          {2,4} min 2 max 4 times
+
+wildcard  (.)  dot symbol can take any character
+            e.g .*  any character can occur any number of times
+
+Optional (?) preceding character may or may not present
+                docx?  x may or may not present
+
+^  symbol : setting position of match tells the computer that match must start at beginning of string or line
+            e.g ^The  match a string that start with The
+
+$  symbol : setting position of match tells the computer that match must end at end of string or line
+            close$   match a string that end with close
+
+[set of character]  : match with set of character
+[^set of character] : match any character except set of character
+[first-last] : match character range
+
+Escape Symbol : \   if + . is used as actual match then use \ before character.
+
+Vertical Bar(|) : matches any one
+                e.g th(is|e|at)  will match this the that
+
