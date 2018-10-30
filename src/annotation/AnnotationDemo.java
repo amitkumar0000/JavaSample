@@ -10,6 +10,7 @@ class Base{
 }
 
 @Deprecated
+@TestAnnotation(os = "ios" ,ver = 10)
 class Derived extends Base{
 
     @Override
@@ -22,6 +23,10 @@ public class AnnotationDemo {
     Base derived2 =  new Derived();
     public AnnotationDemo(){
         derived2.show();
+        Class cls = derived2.getClass();
+        Annotation an = cls.getAnnotation(TestAnnotation.class);
+        TestAnnotation testAnnotation = (TestAnnotation)an;
+        System.out.println("OS "+ testAnnotation.os() + " ver::"+ testAnnotation.ver());
     }
 }
 
@@ -30,6 +35,14 @@ public class AnnotationDemo {
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @interface MyAnnotation{
+
+}
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@interface  TestAnnotation{
+    String os() default "Android";
+    int ver() default 1;
 
 }
 
