@@ -7,6 +7,7 @@ import InterfaceAbstract.markerInterface.customMarkerInterface.ImplMarkerInterfa
 import annotation.AnnotationDemo;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
+import multithread.ProducerConsumer;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
@@ -36,11 +37,19 @@ public class Main {
 
 //          nestedClassDemo();
 
-        cutomImmutableClass();
+//        cutomImmutableClass();
 
-        annotationDemo();
+//        annotationDemo();
+
+        multithreadDemo();
 
         System.out.println("Hello World Exit");
+
+    }
+
+    private static void multithreadDemo() {
+        ProducerConsumer producerConsumer = new ProducerConsumer();
+        producerConsumer.printInSequence();
 
     }
 
