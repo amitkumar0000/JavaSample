@@ -1,0 +1,47 @@
+Encapsulation :- Data hiding
+                e.g class
+Abstraction  :- Implementation hiding
+                e.g interface  abstract class
+
+Inheritance :- superclass subclass
+               multiple inheritance is not supported in java
+               can be implemented via interface
+
+
+Polymorphism :-
+            Static Binding :- Function overloading
+            Dynamic Binding :- Function overriding
+                    static method can't be override
+                    final method can't be override
+                    private method can't be override
+                    final class can't be inherited
+
+            Overriding and Exception Handling
+                If superClass is not throwing any exception, subclass can only throw unchecked exception
+                If superClass is throwing any exception, subclass can only throw same or subclass exception
+
+                Static method can't be override
+                For class (or static) methods, the method according to the type of reference is called,
+                 not according to the object being referred, which means method call is decided at compile time.
+                 This called Method hiding or shadowing of static method.
+
+
+Association, Composition and aggregation
+
+      Aggregation  := Has A relation
+                           object as member of object
+                           Engine object
+                           Car Object
+                           Car has Engine object
+      Composition  :-  Part of relation
+                            object to object relation
+                            e.g library object
+                                book object
+                                book is part of library
+                               library jas list of books
+
+Static method and static variable are stored in permGen space of memory.
+
+ This code inside static block is executed only once: the first time you make an object of that class or
+ the first time you access a static member of that class (even if you never make an object of that class)
+Initializer block contains the code that is always executed whenever an instance is created.
