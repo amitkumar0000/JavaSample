@@ -67,6 +67,10 @@ It is mostly used for custom exception.
 throws keyword is used as part of method signature to notify caller party to handle exception.
 either caller party can add throws or try catch the exception
 
+  Overriding and Exception Handling
+                If superClass is not throwing any exception, subclass can only throw unchecked exception
+                If superClass is throwing any exception, subclass can only throw same or subclass exception
+
 Java OutOfMemoryError Exception
 ==================================
     Error 1: Java Heap Space

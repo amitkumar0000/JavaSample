@@ -88,6 +88,7 @@ Cloneable, Serializable, Remote are marker interface.
             Object cloning refers to creation of exact copy of an object.
             It creates a new instance of the class of current object and
             initializes all its fields with exactly the contents of the corresponding fields of this object.
+            No Constructor is called while creating object via clone.
 
             Deep copy and shallow copy.
             While cloning , changing in primitive type will not be reflected in another object

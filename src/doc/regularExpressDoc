@@ -33,3 +33,16 @@ Escape Symbol : \   if + . is used as actual match then use \ before character.
 Vertical Bar(|) : matches any one
                 e.g th(is|e|at)  will match this the that
 
+\d  digit
+\w  word
+\s whitespace character (space,tab)
+
+\D \W \S  are negation of \d \w \s
+
+Boundaries — \b and \B
+    e.g  \babc\b          performs a "whole words only" search
+         \Babc\B          matches only if the pattern is fully surrounded by word characters
+
+
+E.g
+    \$\d       matches a string that has a $ before one digit
