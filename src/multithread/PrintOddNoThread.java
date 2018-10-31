@@ -11,12 +11,12 @@ public class PrintOddNoThread extends Thread{
     @Override
     public void run() {
 
-        while(ProducerConsumer.count < 20) {
+        while(PrintNumInSequenceUsingThread.count < 20) {
 
             synchronized (lock1) {
                 System.out.println(i+"");
                 i = 2 + i;
-                ProducerConsumer.count++;
+                PrintNumInSequenceUsingThread.count++;
                 lock1.notify();
                 try {
                     lock1.wait();
