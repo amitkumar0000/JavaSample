@@ -7,7 +7,9 @@ import InterfaceAbstract.markerInterface.customMarkerInterface.ImplMarkerInterfa
 import annotation.AnnotationDemo;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
+import multithread.PrintNumInSequenceUsingThread;
 import multithread.ProducerConsumer;
+import multithread.ProducerConsumerUsingBlockingQueue;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
@@ -48,9 +50,27 @@ public class Main {
     }
 
     private static void multithreadDemo() {
-        ProducerConsumer producerConsumer = new ProducerConsumer();
-        producerConsumer.printInSequence();
+//        printNumInSequence();
 
+//        producerConsumer();
+
+        producerConsumerQueue();
+
+    }
+
+    private static void producerConsumerQueue() {
+        ProducerConsumerUsingBlockingQueue producerConsumerUsingBlockingQueue = new ProducerConsumerUsingBlockingQueue();
+        producerConsumerUsingBlockingQueue.startFactory();
+    }
+
+    private static void producerConsumer() {
+        ProducerConsumer producerConsumer = new ProducerConsumer();
+        producerConsumer.startFactory();
+    }
+
+    private static void printNumInSequence() {
+        PrintNumInSequenceUsingThread printNumInSequenceUsingThread = new PrintNumInSequenceUsingThread();
+        printNumInSequenceUsingThread.printInSequence();
     }
 
     @SuppressWarnings({"checked", "deprecation"})
