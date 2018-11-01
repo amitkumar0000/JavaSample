@@ -64,8 +64,15 @@ public class Main {
 
 //        threadPoolDemo();
 
-          semaphoresDemo();
+//          semaphoresDemo();
 
+         countDownLatchDemo();
+
+    }
+
+    private static void countDownLatchDemo() {
+        CountDownLatchDemo countDownLatchDemo = new CountDownLatchDemo();
+        countDownLatchDemo.start();
     }
 
     private static void semaphoresDemo() {

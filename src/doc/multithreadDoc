@@ -107,6 +107,11 @@ Semaphores(int num , boolean how)
    release()
    release(permit)
 
+CountDownLatch
+---------------
+CountDownLatch  is used to make sure that a task waits for other threads before it start.
+e.g a main function must start only after all thread has finished its work.
+
 
 
 
