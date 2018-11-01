@@ -112,6 +112,24 @@ CountDownLatch
 CountDownLatch  is used to make sure that a task waits for other threads before it start.
 e.g a main function must start only after all thread has finished its work.
 
+ReentrantLock
+=============
+
+ReentrantLock allow thread to re-enter the lock more than once before unlock the lock.
+ReentrantLock provide fairness in which lock in acquire in order of lock request.
+The fairness mode is set by passing true in constructor.
+
+lock()
+unlock()
+tryLock()
+tryLock(time,unit)
+
+
+
+
+
+
+
 
 
 
