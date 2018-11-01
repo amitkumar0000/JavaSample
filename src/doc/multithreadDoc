@@ -66,6 +66,39 @@ Object level lock vs Class level lock in Java
     Class level lock :- Two or more Object try to access shared resource.
             e.g static synchronized doSomething(){}
 
+ThreadPool
+    ThreadPool is a pool of thread,
+        Number of thread to create depends upon:
+            num of CPU available
+            IO/CPU bound  operation.
+                More IO bound operation, more thread can be created
+
+    Ways to create threadPool.
+    1. Crete threadPool object
+    Executors executor = Executors.newCachedThreadPool()    // create thread on demand, reuse the existing  thread
+    Executors executor = Executors.newFixedThreadPool(n)  // n number of thread
+    Executors executor = Executors.newSingleThreadExecutor()  // create single number of thread
+
+    2.Create runnable task
+    3. passing runnable object to executor
+
+
+    Risks in using threadPool
+        1. Thread leakage : thread exist from threadPool resulting in reduction in number of thread
+        2. Deadlock
+        3. Resource Thrashing: if number of thread is more, and thread is more busy in context switching.
+
+Semaphores
+===========
+Semaphores(int num)
+    It allow num of Thread to access shared resource
+Semaphores(int num , boolean how)
+    It allow num of thread to access shared resource. if how is true than in order semaphores is requested.
+
+ semaphore.acquire()  //it acquire it decrease the count by 1. if count < 0 then thread enter in wait state
+ semaphore.release()  // it release the semaphore and increase the count by 1.
+
+
 
 
 
