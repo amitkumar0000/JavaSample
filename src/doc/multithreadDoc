@@ -27,3 +27,16 @@ Main Thread
     deadlock via main thread
         Thread.currentThread.join() //main thread is waiting for main thread to terminate.
 
+Java Concurrency
+    yield(), sleep(), join()
+
+    yield() :- Whenever a thread execute yield , it is hint to scheduler that it is ready to pause its execution,
+               Scheduler can check if any thread with same or higher priorities requires CPU time, if yes
+               give CPU to that thread, current thread move to Ready/Runnable state. It is upto scheduler to assign CPU again.
+               Scheduler can ignore this hint also.
+
+    sleep() :- Thread move in timed waiting state
+
+    join() :-  Join on a thread instance(TH1) cause current running thread to stop until thread instance(TH1) complete its execution.
+
+

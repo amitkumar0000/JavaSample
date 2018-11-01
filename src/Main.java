@@ -49,7 +49,7 @@ public class Main {
 
     private static void multithreadDemo() {
 
-//        threadDemo();
+        threadDemo();
 
 //        deadlockUsingMain();
 
@@ -79,11 +79,9 @@ public class Main {
         myThread1.start();
 
 
-
         System.out.println("Thread state:: "+ myThread.getState());
         try {
-            myThread.join();
-
+            myThread.join(10); // join with timeout.
             myThread1.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
