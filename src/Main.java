@@ -62,8 +62,15 @@ public class Main {
 
 //        producerConsumerQueue();
 
-        threadPoolDemo();
+//        threadPoolDemo();
 
+          semaphoresDemo();
+
+    }
+
+    private static void semaphoresDemo() {
+        SemaPhoresDemo semaPhoresDemo = new SemaPhoresDemo();
+        semaPhoresDemo.start();
     }
 
     private static void threadPoolDemo() {
