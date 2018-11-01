@@ -8,7 +8,7 @@ public class SemaPhoresDemo {
 
     public SemaPhoresDemo(){
         /* Check the output. By increasing num of thread option in Semaphore increase the number of thread printing together */
-        sem = new Semaphore(2,true);
+        sem = new Semaphore(4,true);
     }
 
     public void start(){
@@ -33,7 +33,8 @@ class Thread1 extends Thread{
     public void run() {
         while(SemaPhoresDemo.sharedCount < 100){
             try {
-                sem.acquire();
+//                sem.acquire();
+                sem.acquire(2); //take two count
                 Thread.sleep(1000);
                 SemaPhoresDemo.sharedCount++;
                 System.out.println(Thread.currentThread().getName()+"  is running with sharedCount:: "+ SemaPhoresDemo.sharedCount);

@@ -98,6 +98,17 @@ Semaphores(int num , boolean how)
  semaphore.acquire()  //it acquire it decrease the count by 1. if count < 0 then thread enter in wait state
  semaphore.release()  // it release the semaphore and increase the count by 1.
 
+    acquire()
+    acquire(permit)
+    tryAcquire()
+    tryAcquire(permit)
+    tryAcquire(timeout,permit)
+
+   release()
+   release(permit)
+
+
+
 
 
 
