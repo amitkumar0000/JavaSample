@@ -1,0 +1,29 @@
+MultiThread
+============
+
+
+MultiThread allow two or more thread to run concurrently for maximum cpu utilization.
+
+Thread can be executed via
+        1. extending Thread class
+        2. Implementing Runnable interface
+
+By extending thread class, we can't extend other class, as multiple inheritance is not supported.
+
+Thread Lifecycle
+    New : Thread is created
+    Runnable : Thread is running
+    Blocked : Thread is blocked for some IO operation
+    Waiting : Thread is waiting for CPU
+    Timed waiting : Thread is timeout waiting. like Thread.sleep(1000)
+    Terminated : Thread died
+
+
+    Thread State : NEW , RUNNABLE, WAITING, BLOCKED, TIMED_WAITING, TERMINATED
+
+
+Main Thread
+    JVM Create main Thread and from JDK 1.5 verify main() method is present.
+    deadlock via main thread
+        Thread.currentThread.join() //main thread is waiting for main thread to terminate.
+

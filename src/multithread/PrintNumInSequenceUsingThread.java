@@ -9,20 +9,20 @@ Print in sequence
  */
 public class PrintNumInSequenceUsingThread {
 
-    PrintEvenNoThread threadOne;
+    PrintEvenNoThread printEvenNoThread;
     PrintOddNoThread printOddNoThread;
     Object lock1;
     public static int count=0;
 
     public PrintNumInSequenceUsingThread(){
         lock1 = new Object();
-        threadOne = new PrintEvenNoThread(lock1);
+        printEvenNoThread = new PrintEvenNoThread(lock1);
         printOddNoThread = new PrintOddNoThread(lock1);
     }
 
     public void printInSequence(){
         printOddNoThread.start();
-        threadOne.start();
+        printEvenNoThread.start();
     }
 
 }

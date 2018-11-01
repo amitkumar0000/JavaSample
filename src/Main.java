@@ -7,9 +7,7 @@ import InterfaceAbstract.markerInterface.customMarkerInterface.ImplMarkerInterfa
 import annotation.AnnotationDemo;
 import classloader.CustomClassloader;
 import exceptionhandler.*;
-import multithread.PrintNumInSequenceUsingThread;
-import multithread.ProducerConsumer;
-import multithread.ProducerConsumerUsingBlockingQueue;
+import multithread.*;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
@@ -50,11 +48,46 @@ public class Main {
     }
 
     private static void multithreadDemo() {
+
+//        threadDemo();
+
+//        deadlockUsingMain();
+
 //        printNumInSequence();
 
 //        producerConsumer();
 
-        producerConsumerQueue();
+//        producerConsumerQueue();
+
+    }
+
+    private static void deadlockUsingMain() {
+        DeadlockDemo deadlockDemo = new DeadlockDemo();
+        deadlockDemo.run();
+    }
+
+    private static void threadDemo() {
+        MyThread myThread = new MyThread("myThread");
+        myThread.setPriority(1);
+        System.out.println("Thread state:: "+ myThread.getState());
+        myThread.start();
+
+
+        Thread myThread1 = new Thread(new MyThreadRunnable());
+        myThread1.setName("myThread1");
+        myThread1.setPriority(10);
+        myThread1.start();
+
+
+
+        System.out.println("Thread state:: "+ myThread.getState());
+        try {
+            myThread.join();
+
+            myThread1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 

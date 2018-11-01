@@ -24,7 +24,11 @@ public class PrintOddNoThread extends Thread{
                     e.printStackTrace();
                 }
             }
-
         }
+        synchronized (lock1) {
+            lock1.notify();
+        }
+        System.out.println("PrintOddNo Completed");
+
     }
 }

@@ -26,6 +26,6 @@ public class PrintEvenNoThread extends Thread{
                 }
             }
         }
-
+        System.out.println("PrintEvenNo Completed");
     }
 }
