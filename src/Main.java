@@ -66,8 +66,17 @@ public class Main {
 
 //          semaphoresDemo();
 
-         countDownLatchDemo();
+//         countDownLatchDemo();
 
+        reentrantLockDemo();
+
+    }
+
+    private static void reentrantLockDemo() {
+        ReentrantLockDemo demo = new ReentrantLockDemo(true);
+
+        new Thread(()->demo.writeNum()).start();
+        new Thread(()->demo.readNum()).start();
     }
 
     private static void countDownLatchDemo() {
