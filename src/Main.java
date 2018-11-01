@@ -68,8 +68,16 @@ public class Main {
 
 //         countDownLatchDemo();
 
-        reentrantLockDemo();
+//        reentrantLockDemo();
 
+        cyclicBarrierDemo();
+
+    }
+
+    private static void cyclicBarrierDemo() {
+        CyclicBarrierDemo cyclicBarrierDemo = new CyclicBarrierDemo();
+        Thread thread = new Thread(cyclicBarrierDemo);
+        thread.start();
     }
 
     private static void reentrantLockDemo() {

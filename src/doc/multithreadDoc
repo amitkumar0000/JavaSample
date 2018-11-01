@@ -124,6 +124,11 @@ unlock()
 tryLock()
 tryLock(time,unit)
 
+CyclicBarrier
+-------------
+CyclicBarrier is used to make thread wait for other thread to complete its task.
+Output of different thread is used as input of final output.
+
 
 
 
