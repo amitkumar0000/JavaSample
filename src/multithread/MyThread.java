@@ -10,12 +10,15 @@ public class MyThread extends Thread {
     public void run() {
         System.out.println("Thread state:: "+ Thread.currentThread().getState());
         for(int i=0; i<10; i++) {
-            System.out.println(MyThread.currentThread().getName()+"  is Running "+ i +" times");
-            try {
-                Thread.sleep(1000);
-                System.out.println("Thread state:: "+ Thread.currentThread().getState());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if(!Thread.currentThread().isInterrupted()) {
+                System.out.println(MyThread.currentThread().getName() + "  is Running " + i + " times");
+                try {
+                    Thread.sleep(1000);
+                    System.out.println("Thread state:: " + Thread.currentThread().getState());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    Thread.currentThread().interrupt();
+                }
             }
         }
     }

@@ -73,16 +73,21 @@ public class Main {
         myThread.start();
 
 
-        Thread myThread1 = new Thread(new MyThreadRunnable());
-        myThread1.setName("myThread1");
-        myThread1.setPriority(10);
-        myThread1.start();
+        for(int i1=0; i1<5;i1++) {
+            Thread myThread1 = new Thread(new MyThreadRunnable());
+//            myThread1.setName("myThread1");
+            myThread1.setPriority(10);
+            myThread1.start();
+        }
+
 
 
         System.out.println("Thread state:: "+ myThread.getState());
         try {
+            Thread.sleep(1000);
+            myThread.interrupt();
             myThread.join(10); // join with timeout.
-            myThread1.join();
+//            myThread1.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

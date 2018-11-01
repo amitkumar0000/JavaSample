@@ -39,4 +39,34 @@ Java Concurrency
 
     join() :-  Join on a thread instance(TH1) cause current running thread to stop until thread instance(TH1) complete its execution.
 
+Difference between starting a Thread using start() and run() function
+    start()
+        Argument are evaluated
+        create a new stack frame and pushed into call stack
+        parameter are initialize
+        method are executed
+        value is returned and stack frame is popped from call stack.
+
+     run()
+        this is just call the runnable method on current invoking thread.
+        like if run is called from main thread. Thread will be running on context on main thread
+
+    The purpose of start() to create separate stack frame and run() is called by JVM
+
+Thread Priority
+    Thread priority range 1-10
+    MIN_PRIORITY 1
+    NORM_PRIORITY 5
+    MAX_PRIORITY 10
+
+Object level lock vs Class level lock in Java
+    Object level lock :- Two or more thread within a object try to access shared resource
+            e.g synchronized doSomething(){}
+
+    Class level lock :- Two or more Object try to access shared resource.
+            e.g static synchronized doSomething(){}
+
+
+
+
 
