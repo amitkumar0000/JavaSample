@@ -70,8 +70,15 @@ public class Main {
 
 //        reentrantLockDemo();
 
-        cyclicBarrierDemo();
+//        cyclicBarrierDemo();
 
+        callableFutureDemo();
+
+    }
+
+    private static void callableFutureDemo() {
+        FutureCallableDemo demo = new FutureCallableDemo();
+        demo.start();
     }
 
     private static void cyclicBarrierDemo() {
