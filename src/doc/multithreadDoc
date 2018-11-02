@@ -138,7 +138,13 @@ Callable and Future in java
 Callable interface let thread return a value.
 Which can be get via Future object.
 
+Runtime Class
+-------------
+Runtime class allow application to interface with environment it is running.
 
+    e.g Runtime.getRuntime().getFreeMemory();
+    e.g Runtime.getRuntime().totalMemory();
+    e.g Runtime.getRuntime().exec(""google-chrome"");
 
 
 

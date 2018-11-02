@@ -1,0 +1,53 @@
+Legacy collection
+    -Arrays, Vector, HashTables
+
+Collection Interface
+        List
+        Set
+        Queue
+        Map
+
+List Interface
+        - ArrayList
+        - LinkedList
+        - Vector
+    Order list, duplicates allowed
+
+Set Interface
+        - HashSet
+        - LinkedHashSet
+        - TreeHashSet
+    UnOrder List, no Duplicates
+    Set only contain key
+
+Queue
+        - PriorityQueue
+        - LinkedList
+     FIFO
+
+Map
+        - HashTable
+        - HashMap
+        - LinkedHashMap
+        - TreeMap
+      pair(Key, value)
+
+
+Iterators
+    Used in Collection Framework to retrieve element one by one.
+      - Enumeration
+                    Enumeration is used in legacy Collection to retrieve element
+                    Enumeration is only for legacy class(vector,hashTable) only
+                    Enumeration can't be used for removal operation.
+      - Iterator
+                    Iterator is universal , can applied to any Collection.
+                    Removal operation is supported.
+                    Addition/Replacement operation can't done.
+                    Only forward direction iterating is possible.
+      - ListIterator
+                    Only available for List implementing class like linkedList, arrayList.
+                    It provides bi-direction iteration.
+
+                    Addition/Removal/Replacement operation is supported.
+                    Both backward and forward direction iterating is possible.
+

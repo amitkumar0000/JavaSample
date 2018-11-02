@@ -6,6 +6,7 @@ import InterfaceAbstract.markerInterface.customMarkerInterface.FunctionalityMark
 import InterfaceAbstract.markerInterface.customMarkerInterface.ImplMarkerInterface;
 import annotation.AnnotationDemo;
 import classloader.CustomClassloader;
+import collectionFramework.IteratorsDemo;
 import exceptionhandler.*;
 import multithread.*;
 import nestedClass.AnonymousInnerClass;
@@ -72,8 +73,23 @@ public class Main {
 
 //        cyclicBarrierDemo();
 
-        callableFutureDemo();
+//        callableFutureDemo();
 
+        collectionDemo();
+
+    }
+
+    private static void collectionDemo() {
+        IteratorsDemo();
+    }
+
+    private static void IteratorsDemo() {
+        IteratorsDemo iteratorsDemo = new IteratorsDemo();
+        iteratorsDemo.enumerationIterator();
+
+        iteratorsDemo.iterator();
+
+        iteratorsDemo.listIterator();
     }
 
     private static void callableFutureDemo() {
