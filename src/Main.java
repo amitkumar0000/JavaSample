@@ -6,6 +6,8 @@ import InterfaceAbstract.markerInterface.customMarkerInterface.FunctionalityMark
 import InterfaceAbstract.markerInterface.customMarkerInterface.ImplMarkerInterface;
 import annotation.AnnotationDemo;
 import classloader.CustomClassloader;
+import collectionFramework.CollectionSynchronizedDemo;
+import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
 import exceptionhandler.*;
 import multithread.*;
@@ -80,7 +82,16 @@ public class Main {
     }
 
     private static void collectionDemo() {
-        IteratorsDemo();
+//        IteratorsDemo();
+        synchronizedDemo();
+    }
+
+    private static void synchronizedDemo() {
+        CopyOnWriteArrayListDemo demo = new CopyOnWriteArrayListDemo();
+//        demo.start();
+
+        CollectionSynchronizedDemo demo1 = new CollectionSynchronizedDemo();
+        demo1.start();
     }
 
     private static void IteratorsDemo() {

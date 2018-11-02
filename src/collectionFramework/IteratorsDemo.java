@@ -10,6 +10,11 @@ public class IteratorsDemo {
         for(int i=0;i<5;i++)
             v.add(i);
 
+        System.out.print("for each demo:: ");
+        for(int i: v){
+            System.out.print(i);
+        }
+
         Enumeration e = v.elements();
         while(e.hasMoreElements()){
             int num = (int)e.nextElement();
@@ -35,9 +40,14 @@ public class IteratorsDemo {
 
     public void listIterator(){
         List<Integer> l = new ArrayList<>();
+
+        List<Integer> synlist  = Collections.synchronizedList(l);
         for(int i=0; i<10; i++)
             l.add(i);
-
+        System.out.print("for each demo:: ");
+        for(int i: synlist){
+            System.out.print(i+" ");
+        }
         System.out.println("List Iterator Demo");
         ListIterator listIterator = l.listIterator();
 
@@ -66,9 +76,5 @@ public class IteratorsDemo {
         while(listIterator.hasPrevious()){
             System.out.println(listIterator.previous());
         }
-
-
     }
-
-
 }

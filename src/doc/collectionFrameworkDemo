@@ -1,7 +1,7 @@
 Legacy collection
     -Arrays, Vector, HashTables
 
-Collection Interface
+Collection Interface extends Iterable
         List
         Set
         Queue
@@ -51,3 +51,15 @@ Iterators
                     Addition/Removal/Replacement operation is supported.
                     Both backward and forward direction iterating is possible.
 
+    Iterators vs For-each
+        if we have to modify collection, use iterator.
+        using remove in for-each will cause concurrentModificationException
+
+Collections.synchronizedList()  :-
+        It provide synchronization to arrayList. No concurrent read/write operation is permitted.
+CopyOnWriteArrayList()
+        It allow multiple thread to perform read operation while one thread is performing write operation.
+        It create copy of list while performing write operation, so there is overhead of creating copy, modification,
+        and merging back to original list.
+
+        If more read operation are there and list is smaller than CopyOnWriteArrayList() is preferred.
