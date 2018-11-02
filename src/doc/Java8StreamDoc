@@ -1,0 +1,15 @@
+Stream
+    It represent a sequence of object from source which support aggregate operation
+        aggregate operation like filter, map, limit, reduce, find, match and so on.
+    Most of the stream operation return stream itself, which can be used as input.
+    collect() method is a terminal operation which is normally present at end of pipeline operation to mark end of the stream.
+
+    filter :- this method is used to element based on criteria
+    map :-  Map each element to its corresponding result.
+    limit :- limit number of output
+    distinct :- remove duplicates
+    collect :- mark end of stream
+    sorted :- sort the stream data
+    Collectors :- Combine the result of element of stream and return list or string
+
+parallelStream

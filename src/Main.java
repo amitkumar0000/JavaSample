@@ -14,6 +14,7 @@ import multithread.*;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
+import stream.StreamDemo;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -77,8 +78,21 @@ public class Main {
 
 //        callableFutureDemo();
 
-        collectionDemo();
+        java8StreamDemo();
 
+//        collectionDemo();
+
+    }
+
+    private static void java8StreamDemo() {
+        StreamDemo streamDemo = new StreamDemo();
+        streamDemo.sum();
+
+        streamDemo.sumUsingStream();
+
+        streamDemo.filterDemo();
+
+        streamDemo.mapDemo();
     }
 
     private static void collectionDemo() {
