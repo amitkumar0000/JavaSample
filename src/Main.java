@@ -15,6 +15,7 @@ import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
 import rxjavaDemo.ColdHotObservables;
+import rxjavaDemo.ConnectableObservableDemo;
 import rxjavaDemo.RxJavaDemo;
 import rxjavaDemo.SubjectsDemo;
 import stream.StreamDemo;
@@ -92,7 +93,17 @@ public class Main {
 //        rcjavaBasic();
 //        coldhotObservable();
 
-        subjectsDemo();
+//        subjectsDemo();
+
+        connectableObservableDemo();
+    }
+
+    private static void connectableObservableDemo() {
+        ConnectableObservableDemo demo = new ConnectableObservableDemo();
+//        demo.createHotObservableUsingPublish();
+//        demo.replayDemo();
+//        demo.autoconnectDemo();
+        demo.refCountDemo();
     }
 
     private static void subjectsDemo() {

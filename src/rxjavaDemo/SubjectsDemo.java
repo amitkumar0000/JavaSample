@@ -39,6 +39,8 @@ public class SubjectsDemo {
 
         cold1.subscribe(behaviorSubject);
 
+        behaviorSubject.onNext(12L);
+
         behaviorSubject.subscribe((s)->System.out.println("behaviorSubject  "+s),
                 (e)->e.printStackTrace());
 
@@ -52,6 +54,7 @@ public class SubjectsDemo {
     public void createPublishSubject(){
         publishSubject = PublishSubject.create();
         cold1.subscribe(publishSubject);
+        publishSubject.onNext(12L);
 
         publishSubject.subscribe((s)->System.out.println("publishSubject  "+s),
                 (e)->e.printStackTrace());
@@ -65,6 +68,8 @@ public class SubjectsDemo {
     public void createReplaySubject() {
         replaySubject = ReplaySubject.create();
         cold.subscribe(replaySubject);
+
+        replaySubject.onNext("I can also emit");
 
         replaySubject.subscribe((s) -> System.out.print("replaySubject " + s), (e) -> e.printStackTrace());
 

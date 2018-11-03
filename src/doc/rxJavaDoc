@@ -52,5 +52,19 @@ Four Variants of Subjects
                 It emits all the emitted item to the subscriber regardless of when subscriber subscribes and then continue the
                 sequence.
 
+ConnectableObservable
+    we use following method to convert Cold Observable to Hot Observable
+
+    1. Publish :- It does not start emit when subscribe but when connect operator is applied.
+    2. Connect :- It instruct connectable observable to begin emitting item to subscriber.
+    3. Replay  :- It ensure all subscriber see the same sequence of emitted data
+    4. autoconnect(num) :- It wait for num of subscriber to subscribe
+    5. refCount :- it make hot observable cold until one subscriber subscribe. then hot observable.
+
+Disadvantages of Hot Observable
+1. Sources of data become unpredictable to subscriber.
+        As Subject is also able to emit data. Source of data source become unpredictable.
+2. Subscribers can have subscription effect based on subscription time.
+
 
 
