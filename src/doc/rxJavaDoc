@@ -100,6 +100,19 @@ Disadvantages of Hot Observable
         As Subject is also able to emit data. Source of data source become unpredictable.
 2. Subscribers can have subscription effect based on subscription time.
 
+Rxjava Scheduler
+===============
+    Scheduler can be thought of as a thread pool managing 1 or more thread
+
+    1.Schedulers.io() is backed by an unbounded thread pool
+    2.Schedulers.computation() bounded by number of processor
+    3. Schedulers.newThread() creates a new thread for each unit of work scheduled.
+    4. Schedulers.from(Executor executor) creates and returns a custom scheduler backed by the specified executor
+    5. Main thread or AndroidSchedulers.mainThread() is provided by the RxAndroid extension library to RxJava
+    6. Schedulers.single() is new in RxJava 2. This scheduler is backed by a single thread executing tasks sequentially in the order requested
+    7. Schedulers.trampoline() executes tasks in a FIFO (First In, First Out) manner by one of the participating worker threads.
+                        It’s often used when implementing recursion to avoid growing the call stack.
+
 
 
 
