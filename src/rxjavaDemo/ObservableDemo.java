@@ -3,6 +3,7 @@ package rxjavaDemo;
 import io.reactivex.*;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
+import io.reactivex.schedulers.Schedulers;
 
 public class ObservableDemo {
     Observable<Integer> observable;
@@ -19,7 +20,7 @@ public class ObservableDemo {
 //                observableEmitter.onError(new Throwable());
 //                observableEmitter.onComplete();
             }
-        });
+        }).subscribeOn(Schedulers.io());
 
         observable = Observable.create((e)->e.onComplete());
         //converting observable to flowable
@@ -27,7 +28,8 @@ public class ObservableDemo {
     }
 
     public void linkObservable(){
-        Disposable disposable = observable.subscribe(s->System.out.println("Observable "+s),e->e.printStackTrace(),()->System.out.println("Observable "+"Complete"));
+        Disposable disposable = observable.subscribe(s->System.out.println("Observable "+s),
+                e->e.printStackTrace(),()->System.out.println("Observable "+"Complete"));
         disposable.dispose();
     }
 
