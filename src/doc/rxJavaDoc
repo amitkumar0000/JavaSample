@@ -41,7 +41,16 @@ Ways to create Hot Observables
       2. ConnectAbleObservable : we can only convert cold observable into hot observable using publish and connect method.
                               and various variant like refCount, autoConnect and replay etc.
 
-
+Four Variants of Subjects
+1. AsyncSubjects :
+                Only emits last value to its subscriber when source observable completes.
+2. BehaviourSubjects :
+                Only emits most recently one, if none emitting then default one and then continue the sequence until complete.
+3. PublishSubjects:
+                Same as BehaviourSubject expect it emit only those item which are emitted after subscription. And no default value.
+4. ReplaySubjects:
+                It emits all the emitted item to the subscriber regardless of when subscriber subscribes and then continue the
+                sequence.
 
 
 
