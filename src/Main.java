@@ -16,6 +16,7 @@ import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
 import rxjavaDemo.ColdHotObservables;
 import rxjavaDemo.RxJavaDemo;
+import rxjavaDemo.SubjectsDemo;
 import stream.StreamDemo;
 
 import java.lang.reflect.Field;
@@ -89,7 +90,17 @@ public class Main {
 
     private static void rxjavaDemo() {
 //        rcjavaBasic();
-        coldhotObservable();
+//        coldhotObservable();
+
+        subjectsDemo();
+    }
+
+    private static void subjectsDemo() {
+        SubjectsDemo subjectsDemo = new SubjectsDemo();
+        subjectsDemo.createAsyncSubject();
+        subjectsDemo.createBehaviouralSubject();
+        subjectsDemo.createPublishSubject();
+        subjectsDemo.createReplaySubject();
     }
 
     private static void coldhotObservable() {
