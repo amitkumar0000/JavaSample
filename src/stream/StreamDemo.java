@@ -36,16 +36,23 @@ public class StreamDemo {
 
     public void filterDemo(){
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
-        List<String> filter = strings.stream().filter(s->!s.isEmpty()).limit(2).collect(Collectors.toList());
+
+//        strings.stream().filter(s->!s.isEmpty()).limit(10).collect(Collectors.toList()).forEach(y->System.out.println(y));
+        strings.stream().filter(s->!s.isEmpty()).sorted().collect(Collectors.toList()).forEach(y->System.out.println(y));
+
+        /*List<String> filter = strings.stream().filter(s->!s.isEmpty()).limit(2).collect(Collectors.toList());
         for(String s: filter){
             System.out.println("String after filter:: "+s);
-        }
+        }*/
     }
 
     public void mapDemo(){
         List<Integer> list = Arrays.asList(30,20,31,13,5,6,7);
-        List<Integer> squarelist = list.parallelStream().map(i->i*i).distinct().limit(10).sorted().collect(Collectors.toList());
+
+        list.parallelStream().map(i->i*i).distinct().limit(10).sorted().collect(Collectors.toList()).forEach(y->System.out.println(y));
+
+        /*List<Integer> squarelist = list.parallelStream().map(i->i*i).distinct().limit(10).sorted().collect(Collectors.toList());
         for (int i: squarelist)
-            System.out.println("sq::"+ i);
+            System.out.println("sq::"+ i);*/
     }
 }

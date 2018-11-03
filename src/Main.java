@@ -14,6 +14,8 @@ import multithread.*;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
+import rxjavaDemo.ColdHotObservables;
+import rxjavaDemo.RxJavaDemo;
 import stream.StreamDemo;
 
 import java.lang.reflect.Field;
@@ -78,10 +80,32 @@ public class Main {
 
 //        callableFutureDemo();
 
-        java8StreamDemo();
+//        java8StreamDemo();
 
 //        collectionDemo();
 
+          rxjavaDemo();
+    }
+
+    private static void rxjavaDemo() {
+//        rcjavaBasic();
+        coldhotObservable();
+    }
+
+    private static void coldhotObservable() {
+        ColdHotObservables coldHotObservables = new ColdHotObservables();
+        coldHotObservables.createColdObservable();
+        coldHotObservables.linkColdObserverable();
+
+        coldHotObservables.createHotObservable();
+        coldHotObservables.linkHotObserverable();
+    }
+
+    private static void rcjavaBasic() {
+        RxJavaDemo rxJavaDemo = new RxJavaDemo();
+        rxJavaDemo.create();
+
+        rxJavaDemo.link();
     }
 
     private static void java8StreamDemo() {

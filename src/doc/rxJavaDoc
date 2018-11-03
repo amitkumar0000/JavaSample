@@ -1,0 +1,47 @@
+RxJava : Reactive Extension Java
+
+Building block of RxJava
+1. Observable :
+        It is source of data
+        It start providing data once subscriber start observing Observables.
+
+2. Subscribers/Observers :
+        listening to Observable
+        If new item is emitted, onNext method is called on each subscriber
+        if observable finish data flow successfully, onComplete is called on each subscriber.
+        if observable finish data flow with error, onError is called on each subscriber.
+
+set of method for modifying and composing the data.
+
+An Observable emits data and subscriber consume data.
+
+
+Different ways to create Observable Object
+
+1. Observable observable = Observable.create(new ObservableOnSubscribe(){})
+2. Observable observable = Observable.just();
+2. Observable observable = Observable.fromCallable(new Callable{})
+
+Hot and Cold Observable; connectAble Observable
+
+Hot Observable : will emits data as available, don't wait for subscriber.
+                They don't emit sequence of data again for new subscriber.
+
+
+Cold Observable : will emits data if subscribe
+                  if more than one subscriber than emits data one by one to all subscriber.
+
+
+RxSubjects : It acts as both observables and subscriber as well.
+             RxSubject are Hot Observables.
+
+Ways to create Hot Observables
+      1. Subjects :- Using Subject , we can not only convert cold observable into hot observable. but
+                     can also create hot observable from scratch.
+      2. ConnectAbleObservable : we can only convert cold observable into hot observable using publish and connect method.
+                              and various variant like refCount, autoConnect and replay etc.
+
+
+
+
+
