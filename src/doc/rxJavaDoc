@@ -15,6 +15,24 @@ set of method for modifying and composing the data.
 
 An Observable emits data and subscriber consume data.
 
+Different Types of Observable
+1. Observable
+            Emit 0 and n items and terminate with success or error
+2. Flowable
+            Emit 0 or n items with success or error. support backpressure, which allow to control how fast source emits
+            Backpressure strategy:-
+                        MISSING,
+                        ERROR,
+                        BUFFER,
+                        DROP,
+                        LATEST
+3. Single
+            Emit either a single item or error event. e.g method call
+4. Maybe
+            succedds wtih an item or zero item.
+5. Completable
+            Either complete with success or error. never emit any item
+
 
 Different ways to create Observable Object
 

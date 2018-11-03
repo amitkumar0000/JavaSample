@@ -14,10 +14,7 @@ import multithread.*;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
-import rxjavaDemo.ColdHotObservables;
-import rxjavaDemo.ConnectableObservableDemo;
-import rxjavaDemo.RxJavaDemo;
-import rxjavaDemo.SubjectsDemo;
+import rxjavaDemo.*;
 import stream.StreamDemo;
 
 import java.lang.reflect.Field;
@@ -93,9 +90,30 @@ public class Main {
 //        rcjavaBasic();
 //        coldhotObservable();
 
+        observableDemo();
+
 //        subjectsDemo();
 
-        connectableObservableDemo();
+//        connectableObservableDemo();
+    }
+
+    private static void observableDemo() {
+        ObservableDemo demo = new ObservableDemo();
+
+        demo.createObservable();
+        demo.linkObservable();
+
+        demo.createFlowable();
+        demo.linkflowable();
+
+        demo.createSingle();
+        demo.linksingle();
+
+        demo.createMaybe();
+        demo.linkMaybe();
+
+        demo.createCompletable();
+        demo.linkcompletable();
     }
 
     private static void connectableObservableDemo() {
