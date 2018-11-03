@@ -45,6 +45,9 @@ Runtime Data Area
     Native method stack: stack of native method(C,C++)
 
     note:- static variable is part of MethodArea(permGen) as it is part of class not instance.
+    
+    Form java 8 Ther is no PermGen .So no out of memory due to PermGen issue.
+    It will take native memory as MetaSpace take.
 
 
 Execution Engine
