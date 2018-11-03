@@ -1,6 +1,7 @@
 RxJava : Reactive Extension Java
 
 Building block of RxJava
+===========================
 1. Observable :
         It is source of data
         It start providing data once subscriber start observing Observables.
@@ -16,6 +17,7 @@ set of method for modifying and composing the data.
 An Observable emits data and subscriber consume data.
 
 Different Types of Observable
+================================
 1. Observable
             Emit 0 and n items and terminate with success or error
 2. Flowable
@@ -35,12 +37,22 @@ Different Types of Observable
 
 
 Different ways to create Observable Object
+-------------------------------------------
 
-1. Observable observable = Observable.create(new ObservableOnSubscribe(){})
-2. Observable observable = Observable.just();
-2. Observable observable = Observable.fromCallable(new Callable{})
+1. Observable.create(new ObservableOnSubscribe(){})
+2. Observable.just();
+3. Observable.fromCallable(new Callable{})
+4. Observable.fromIterable()
+5. Observable.fromArray()
+6. Observable.fromFuture()
+7. Observable.interval()
+
+each observable type can be converted into different observable type
+
+Similar methods exists for the other data types, e.g., *Flowable.just(), Maybe.just() and Single.just.
 
 Hot and Cold Observable; connectAble Observable
+================================================
 
 Hot Observable : will emits data as available, don't wait for subscriber.
                 They don't emit sequence of data again for new subscriber.
@@ -50,7 +62,9 @@ Cold Observable : will emits data if subscribe
                   if more than one subscriber than emits data one by one to all subscriber.
 
 
-RxSubjects : It acts as both observables and subscriber as well.
+RxSubjects :
+============
+ It acts as both observables and subscriber as well.
              RxSubject are Hot Observables.
 
 Ways to create Hot Observables
@@ -60,6 +74,7 @@ Ways to create Hot Observables
                               and various variant like refCount, autoConnect and replay etc.
 
 Four Variants of Subjects
+==========================
 1. AsyncSubjects :
                 Only emits last value to its subscriber when source observable completes.
 2. BehaviourSubjects :
@@ -71,6 +86,7 @@ Four Variants of Subjects
                 sequence.
 
 ConnectableObservable
+======================
     we use following method to convert Cold Observable to Hot Observable
 
     1. Publish :- It does not start emit when subscribe but when connect operator is applied.
@@ -83,6 +99,9 @@ Disadvantages of Hot Observable
 1. Sources of data become unpredictable to subscriber.
         As Subject is also able to emit data. Source of data source become unpredictable.
 2. Subscribers can have subscription effect based on subscription time.
+
+
+
 
 
 

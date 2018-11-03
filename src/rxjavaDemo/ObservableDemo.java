@@ -1,6 +1,7 @@
 package rxjavaDemo;
 
 import io.reactivex.*;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 
 public class ObservableDemo {
@@ -21,10 +22,13 @@ public class ObservableDemo {
         });
 
         observable = Observable.create((e)->e.onComplete());
+        //converting observable to flowable
+//        flowable = observable.toFlowable(BackpressureStrategy.LATEST);
     }
 
     public void linkObservable(){
-        observable.subscribe(s->System.out.println("Observable "+s),e->e.printStackTrace(),()->System.out.println("Observable "+"Complete"));
+        Disposable disposable = observable.subscribe(s->System.out.println("Observable "+s),e->e.printStackTrace(),()->System.out.println("Observable "+"Complete"));
+        disposable.dispose();
     }
 
     public void createFlowable(){
@@ -35,6 +39,8 @@ public class ObservableDemo {
         },BackpressureStrategy.BUFFER);*/
 
         flowable = Flowable.create((e)->e.onNext(30),BackpressureStrategy.BUFFER);
+
+//        observable = flowable.toObservable();
     }
 
     public void linkflowable(){
@@ -53,6 +59,9 @@ public class ObservableDemo {
 //            e.onError(new Throwable());
             e.onSuccess(10);
         });
+        single.cache();
+
+//        observable = single.toObservable();
     }
 
     public void linksingle(){
@@ -72,10 +81,13 @@ public class ObservableDemo {
 //            e.onError(new Throwable());
             e.onSuccess(10);
         });
+
+//        observable = maybe.toObservable();
     }
 
     public void linkMaybe(){
-        maybe.subscribe(s->System.out.println("maybe " +s),e->e.printStackTrace());
+        Disposable disposable = maybe.subscribe(s->System.out.println("maybe " +s), e->e.printStackTrace());
+        disposable.dispose();
     }
 
     public void createCompletable(){
@@ -91,6 +103,8 @@ public class ObservableDemo {
             e.onComplete();
 //            e.onError(new Throwable());
         });
+
+//        observable = completable.toObservable();
     }
 
     public void linkcompletable(){
