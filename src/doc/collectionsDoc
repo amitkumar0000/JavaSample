@@ -17,6 +17,8 @@ Map
 
 Set:- Doesn't allow duplicates.Elements are unordered
         HashSet(Hashing based), LinkedHashSet, TreeSet(Balanced Tree)
+        LinkedHashSet preserve the insertion order.
+
 
 List:- Allow duplicates and in ordered way
         ArrayList, LinkedList, Vector , Stack
@@ -44,6 +46,14 @@ ListIterator is only for class that implements List interface.
 
 Iterators only allow forward direction elements retrieval .no add, modify is allowed. Removal is allowed
 With ListIterator both forward and backward direction, element retrieval is allowed. Elements can be modified, add and removed.
+
+Collections.sort()  can only be applied to Collection Framework in which ele are stored in ordered way like all classes
+implementing List, Queue, Deque.
+
+Set Interface implemented class can't be sort via Collections.sort functionality.
+If sorting is required , first convert the set into List . then do sorting.
+So use TreeSet which arrange order in asc/des order. It implements SortedSet interface.
+
 
 
 

@@ -10,6 +10,7 @@ import collectionFramework.CollectionSynchronizedDemo;
 import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
 import collections.ListDemo;
+import collections.SetDemo;
 import collections.Student;
 import exceptionhandler.*;
 import multithread.*;
@@ -162,9 +163,20 @@ public class Main {
     }
 
     private static void collectionDemo() {
-        listDemo();
+//        listDemo();
+        setDemo();
 //        IteratorsDemo();
 //        synchronizedDemo();
+    }
+
+    private static void setDemo() {
+        SetDemo demo = new SetDemo();
+        for(int i=0;i<10;i++){
+            Student student = new Student(i, "name"+i);
+            demo.addToHashSet(student);
+        }
+
+        demo.sortHashSet();
     }
 
     private static void listDemo() {
