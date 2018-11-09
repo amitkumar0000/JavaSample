@@ -1,16 +1,17 @@
 package collections;
 
-public class Student implements  Comparable{
+//public class Student implements  Comparable{
+public class Student {
     int rollno;
-    String name;
+    public String name;
     public Student(int rollno, String name){
         this.name = name;
         this.rollno = rollno;
     }
 
-    @Override
+    /*@Override
     public int compareTo(Object o) {
         Student s = (Student)o;
         return s.rollno-rollno;
-    }
+    }*/
 }

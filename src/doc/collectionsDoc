@@ -55,6 +55,14 @@ If sorting is required , first convert the set into List . then do sorting.
 So use TreeSet which arrange order in asc/des order. It implements SortedSet interface.
 
 
+Map
+    HashMap allow null as key while HashTable does not allow null as key.
+    HashMap is not synchronized while hashTable is synchronized.
+    TreeHashMap - implemented via Balanced binary tree
+    LinkedHashMap:- Preserve the insertion order.
+
+
+
 
 
 

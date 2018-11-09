@@ -10,6 +10,7 @@ import collectionFramework.CollectionSynchronizedDemo;
 import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
 import collections.ListDemo;
+import collections.MapDemo;
 import collections.SetDemo;
 import collections.Student;
 import exceptionhandler.*;
@@ -164,9 +165,21 @@ public class Main {
 
     private static void collectionDemo() {
 //        listDemo();
-        setDemo();
+//        setDemo();
+        mapDemo();
 //        IteratorsDemo();
 //        synchronizedDemo();
+    }
+
+    private static void mapDemo() {
+        MapDemo demo = new MapDemo();
+        for(int i=0;i<10;i++){
+            Student student = new Student(i, "name"+i);
+            demo.addTOHashMap(student.name,student);
+        }
+
+        demo.sortHashMap();
+
     }
 
     private static void setDemo() {
