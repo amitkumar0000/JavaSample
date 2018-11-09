@@ -9,6 +9,8 @@ import classloader.CustomClassloader;
 import collectionFramework.CollectionSynchronizedDemo;
 import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
+import collections.ListDemo;
+import collections.Student;
 import exceptionhandler.*;
 import multithread.*;
 import nestedClass.AnonymousInnerClass;
@@ -81,9 +83,9 @@ public class Main {
 
 //        java8StreamDemo();
 
-//        collectionDemo();
+        collectionDemo();
 
-          rxjavaDemo();
+//          rxjavaDemo();
     }
 
     private static void rxjavaDemo() {
@@ -160,8 +162,19 @@ public class Main {
     }
 
     private static void collectionDemo() {
+        listDemo();
 //        IteratorsDemo();
-        synchronizedDemo();
+//        synchronizedDemo();
+    }
+
+    private static void listDemo() {
+        ListDemo listDemo = new ListDemo();
+        for(int i=0;i<10;i++){
+            Student student = new Student(i, "name"+i);
+            listDemo.addStudentInList(student);
+        }
+
+        listDemo.sortUserDefinedObjectInArrayList();
     }
 
     private static void synchronizedDemo() {

@@ -1,0 +1,51 @@
+A collections is group of individual object represented as single unit.
+
+java.util.collection and java.util.map are two main root interface of java Collections Classes.
+
+Legacy collection : Array, vector and hashTable
+
+Collection
+============
+        -- List
+        -- Set
+            --SortedSet
+        -- Queue
+        -- Dequeue
+
+Map
+    -- SortedMap
+
+Set:- Doesn't allow duplicates.Elements are unordered
+        HashSet(Hashing based), LinkedHashSet, TreeSet(Balanced Tree)
+
+List:- Allow duplicates and in ordered way
+        ArrayList, LinkedList, Vector , Stack
+        Vector is synchronized ,
+        ArrayList is not synchronized. IT can be synchronized using Collections.SynchronizedList(list)
+            and CopyOnWriteArrayList()
+
+Queue:- order elements in FIFO
+        PriorityQueue
+
+Deque:-  Allow LIFO and FIFO
+         ArrayDeque,LinkedList(Deque)
+
+Map:-   Contains key value pairs. Don't allow duplicates.
+        HashMap, LinkedHashMap, HashTable,TreeMap
+
+
+Iterator, Enumeration, ListIterators
+=====================================
+All above are used to retrieve elements from Collections.
+
+Iterator are universal Iterator, can be used by any collections.
+Enumeration only work with legacy collection(HashTable, Vector)
+ListIterator is only for class that implements List interface.
+
+Iterators only allow forward direction elements retrieval .no add, modify is allowed. Removal is allowed
+With ListIterator both forward and backward direction, element retrieval is allowed. Elements can be modified, add and removed.
+
+
+
+
+
