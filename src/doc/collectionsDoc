@@ -88,6 +88,17 @@ Internal Function of HashMap
     They at that index, key is match if its same then return value otherwise check next value.
 
 
+Vector vs ArrayList
+===================
+1.Vector is synchronized while arrayList is not.
+2. ArrayList is faster than vector.
+3. ArrayList increase 50% of its current capacity is element exceeds its capacity, vector 100%.
+4. Vector can be traverse using enumeration and iterator. ArrayList can traverse using iterator only.
+
+
+
+
+
 
 
 
