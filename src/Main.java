@@ -9,10 +9,7 @@ import classloader.CustomClassloader;
 import collectionFramework.CollectionSynchronizedDemo;
 import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
-import collections.ListDemo;
-import collections.MapDemo;
-import collections.SetDemo;
-import collections.Student;
+import collections.*;
 import exceptionhandler.*;
 import multithread.*;
 import nestedClass.AnonymousInnerClass;
@@ -25,6 +22,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -166,9 +164,20 @@ public class Main {
     private static void collectionDemo() {
 //        listDemo();
 //        setDemo();
-        mapDemo();
+//        mapDemo();
+        queueDemo();
 //        IteratorsDemo();
 //        synchronizedDemo();
+    }
+
+    private static void queueDemo() {
+        QueueDemo demo = new QueueDemo();
+        for(int i=0;i<10;i++){
+            Student student = new Student(i, "name"+i);
+            demo.addToQueue(student);
+        }
+
+        demo.printQueue();
     }
 
     private static void mapDemo() {

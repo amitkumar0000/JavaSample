@@ -1,7 +1,7 @@
 package collections;
 
-//public class Student implements  Comparable{
-public class Student {
+public class Student implements  Comparable{
+//public class Student {
     int rollno;
     public String name;
     public Student(int rollno, String name){
@@ -9,9 +9,9 @@ public class Student {
         this.rollno = rollno;
     }
 
-    /*@Override
+    @Override
     public int compareTo(Object o) {
         Student s = (Student)o;
-        return s.rollno-rollno;
-    }*/
+        return rollno-s.rollno;
+    }
 }

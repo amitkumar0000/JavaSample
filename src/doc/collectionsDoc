@@ -19,6 +19,13 @@ Set:- Doesn't allow duplicates.Elements are unordered
         HashSet(Hashing based), LinkedHashSet, TreeSet(Balanced Tree)
         LinkedHashSet preserve the insertion order.
 
+SortedSet :- is an interface in collection framework.
+     This interface extends Set and provides a total ordering of its elements.
+     Exampled class that implements this interface is TreeSet.
+     All elements of a SortedSet must implement the Comparable interface
+     (or be accepted by the specified Comparator) and all such elements must be mutually comparable
+     (i.e, Mutually Comparable simply means that two objects accept each other as the argument to their compareTo method)
+
 
 List:- Allow duplicates and in ordered way
         ArrayList, LinkedList, Vector , Stack
@@ -27,7 +34,7 @@ List:- Allow duplicates and in ordered way
             and CopyOnWriteArrayList()
 
 Queue:- order elements in FIFO
-        PriorityQueue
+        PriorityQueue  Object get stored in PriorityQueue need to implements comparable interface
 
 Deque:-  Allow LIFO and FIFO
          ArrayDeque,LinkedList(Deque)
@@ -47,8 +54,10 @@ ListIterator is only for class that implements List interface.
 Iterators only allow forward direction elements retrieval .no add, modify is allowed. Removal is allowed
 With ListIterator both forward and backward direction, element retrieval is allowed. Elements can be modified, add and removed.
 
-Collections.sort()  can only be applied to Collection Framework in which ele are stored in ordered way like all classes
-implementing List, Queue, Deque.
+Collections.sort()
+=========================
+It can only be applied to Collection Framework in which elements are stored in ordered way like all classes
+implementing List.
 
 Set Interface implemented class can't be sort via Collections.sort functionality.
 If sorting is required , first convert the set into List . then do sorting.
@@ -56,10 +65,30 @@ So use TreeSet which arrange order in asc/des order. It implements SortedSet int
 
 
 Map
+=====
     HashMap allow null as key while HashTable does not allow null as key.
     HashMap is not synchronized while hashTable is synchronized.
     TreeHashMap - implemented via Balanced binary tree
     LinkedHashMap:- Preserve the insertion order.
+
+
+Internal Function of HashMap
+=============================
+    Struct node{
+                int hashcode;
+                <T> key;
+                <T> value;
+                node next;
+              }
+
+    HashMap is array of node.
+    Hash-function is used to calculate index of key using its hashCode.
+    In case of collision node are stored in linked-list.
+    To get key value. Index is calculated via hash-function
+    They at that index, key is match if its same then return value otherwise check next value.
+
+
+
 
 
 
