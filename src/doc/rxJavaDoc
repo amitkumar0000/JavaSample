@@ -112,6 +112,14 @@ Rxjava Scheduler
     6. Schedulers.single() is new in RxJava 2. This scheduler is backed by a single thread executing tasks sequentially in the order requested
     7. Schedulers.trampoline() executes tasks in a FIFO (First In, First Out) manner by one of the participating worker threads.
                         It’s often used when implementing recursion to avoid growing the call stack.
+                        
+RxJava Operator
+----------------
+1. Map : Map transforms the items emitted by an Observable by applying a function to each item
+                e.g map(x -> x*10)
+2. FlatMap : It also applies function on emitted item but it return observable of resultant item.
+                
+2. ConcatMap : It is same as FlatMap but order of emitted item is preserved in this 
 
 
 
