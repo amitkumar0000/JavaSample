@@ -11,6 +11,7 @@ import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
 import collections.*;
 import exceptionhandler.*;
+import io.reactivex.FlowableSubscriber;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -18,6 +19,7 @@ import multithread.*;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
+import org.reactivestreams.Subscription;
 import rxjavaDemo.*;
 import stream.StreamDemo;
 
@@ -108,7 +110,51 @@ public class Main {
 
 //        connectableObservableDemo();
 
-        operatorDemo();
+//        operatorDemo();
+
+//        flowableDemo();
+
+        publishSubjectDemo();
+    }
+
+    private static void publishSubjectDemo() {
+        SubjectsDemo subjectsDemo = new SubjectsDemo();
+
+        System.out.println("Publish Subject ");
+
+        subjectsDemo.getPublishSubjectObservable()
+                    .subscribe(new Observer<Integer>() {
+                        @Override
+                        public void onSubscribe(Disposable disposable) {
+                            System.out.println("Publish onSubscribe ");
+
+                        }
+
+                        @Override
+                        public void onNext(Integer integer) {
+                            System.out.println("Publish OnNext "+ integer);
+                        }
+
+                        @Override
+                        public void onError(Throwable throwable) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            System.out.println("Publish onComplete ");
+
+                        }
+                    });
+    }
+
+    private static void flowableDemo() {
+        FlowableDemo demo = new FlowableDemo();
+
+//        demo.just().subscribe(x->System.out.println(x));
+
+
+         demo.create().subscribe(x->System.out.println(x));
     }
 
     private static void operatorDemo() {

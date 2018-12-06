@@ -79,5 +79,28 @@ public class SubjectsDemo {
             e.printStackTrace();
         }*/
     }
+    PublishSubject p;
+    public PublishSubject<Integer> getPublishSubjectObservable(){
+        p = PublishSubject.create();
+        p.onNext(10);
+        EmitDataAfterEvery5Sec();
+        return p;
+    }
+
+    private void EmitDataAfterEvery5Sec() {
+        new Thread(() -> {
+            int i =0;
+            while(i<5){
+                p.onNext(i);
+                ++i;
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            p.onComplete();
+        }).start();
+    }
 
 }

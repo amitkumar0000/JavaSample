@@ -186,20 +186,20 @@ public class OperatorDemo {
     16. Calculates the average of all the items emitted by an Observable and emits only the Average value.
      */
     /*
-    17. Counts number of items emitted by an Observable and emits only the count value.
+    17. Counts() number of items emitted by an Observable and emits only the count value.
      */
     /*
-    18. Reduce applies a function on each item and emits the final result.
+    18. Reduce() applies a function on each item and emits the final result.
     First, it applies a function to first item, takes the result and feeds back to same function on second item.
     This process continuous until the last emission. Once all the items are over, it emits the final result.
      */
     /*
-    19. Concat operator combines output of two or more Observables into a single Observable.
+    19. Concat() operator combines output of two or more Observables into a single Observable.
      Concat operator always maintains the sequential execution without interleaving the emissions.
      So the first Observables completes its emission before the second starts and so forth if there are more observables.
      */
     /*
-    20. Merge also merges multiple Observables into a single Observable but it won’t maintain the sequential execution
+    20. Merge() also merges multiple Observables into a single Observable but it won’t maintain the sequential execution
      */
     /*
     21. Map() modifies each item emitted by a source Observable and emits the modified item.
@@ -245,6 +245,11 @@ public class OperatorDemo {
             }
         });
     }
+
+    /*
+    25. Defer()
+    do not create the Observable until the observer subscribes, and create a fresh Observable for each observer
+     */
 
 
 
