@@ -17,6 +17,7 @@ public class ObservableDemo {
             @Override
             public void subscribe(ObservableEmitter<Integer> observableEmitter) throws Exception {
                 observableEmitter.onNext(2323);
+                observableEmitter.onComplete();
 //                observableEmitter.onError(new Throwable());
 //                observableEmitter.onComplete();
             }

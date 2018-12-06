@@ -11,6 +11,9 @@ import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
 import collections.*;
 import exceptionhandler.*;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import multithread.*;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
@@ -22,10 +25,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class Main {
 
@@ -51,7 +52,17 @@ public class Main {
 
 //        annotationDemo();
 
-        multithreadDemo();
+        rxjavaDemo();
+
+
+
+//        multithreadDemo();
+
+        try {
+            Thread.currentThread().join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("Hello World Exit");
 
@@ -83,20 +94,107 @@ public class Main {
 
 //        java8StreamDemo();
 
-        collectionDemo();
+//        collectionDemo();
 
-//          rxjavaDemo();
     }
 
     private static void rxjavaDemo() {
 //        rcjavaBasic();
 //        coldhotObservable();
 
-        observableDemo();
+//        observableDemo();
 
 //        subjectsDemo();
 
 //        connectableObservableDemo();
+
+        operatorDemo();
+    }
+
+    private static void operatorDemo() {
+        OperatorDemo operator = new OperatorDemo();
+
+        // 1. Just Operator
+        System.out.println("\n Just Operator");
+
+        operator.justFromSingle();
+
+        operator.justFromSingle()
+                .subscribe((Item)->System.out.println(Item));
+
+        operator.justFromArray()
+                .subscribe((Integer[] item)->{
+                    for(int i: item){
+                        System.out.println("Item received:: "+ i);
+                    }
+                });
+
+        //2. From Operator
+        System.out.println("\n From Operator");
+        operator.fromArray()
+                .subscribe((x)->System.out.println(x));
+
+        operator.fromCallable()
+                .subscribe((x)->System.out.println(x));
+
+        operator.fromIterable().subscribe(x->System.out.println(x));
+
+        operator.fromIterable().subscribe(new Observer<Integer>() {
+            @Override
+            public void onSubscribe(Disposable disposable) {
+
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+                System.out.println("onNext:: "+integer);
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onComplete() {
+                System.out.println("onComplete");
+            }
+        });
+
+        //3. Range
+        System.out.println("\n Range Operator");
+
+        operator.range()
+                .subscribe(x->System.out.println(x));
+
+        //4. Repeat
+        System.out.println("\n Repeat Operator");
+        operator.repeat().subscribe(x->System.out.println(x));
+
+        //5. Buffer
+        System.out.println("\n Buffer Operator");
+        operator.buffer().subscribe(x->System.out.println(x));
+
+        //6. Debounce
+        System.out.println("\n Debounce Operator");
+        operator.debounce().subscribe(x->System.out.println(x));
+
+
+        //21. Map
+        System.out.println("\n Map Operator");
+        operator.map().subscribe(x->System.out.println(x));
+
+        //22. flatMap
+        System.out.println("\n flatMap Operator");
+        operator.flatMap().subscribe(x->System.out.println(x));
+
+        //24. SwitchMap
+        System.out.println("\n SwitchMap Operator");
+        operator.SwitchMap().subscribe(x->System.out.println(x));
+
+        //25. Create
+        System.out.println("\n Create ");
+        operator.create().subscribe(x->System.out.println(x));
     }
 
     private static void observableDemo() {
@@ -164,8 +262,8 @@ public class Main {
     private static void collectionDemo() {
 //        listDemo();
 //        setDemo();
-//        mapDemo();
-        queueDemo();
+        mapDemo();
+//        queueDemo();
 //        IteratorsDemo();
 //        synchronizedDemo();
     }

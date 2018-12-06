@@ -39,6 +39,5 @@ public class MapDemo {
         for (String key : list) {
             System.out.println("Key:: " + key + " value " + hashMap.get(key).rollno);
         }
-
     }
 }

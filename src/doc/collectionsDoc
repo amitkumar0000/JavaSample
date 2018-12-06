@@ -71,6 +71,15 @@ Map
     TreeHashMap - implemented via Balanced binary tree
     LinkedHashMap:- Preserve the insertion order.
 
+    Sort Map via Values
+    ==================
+    Create a list of
+    List<Set<Map.Entry<T1,T2>>> list = new ArrayList<map.entrySet>
+
+    then sort list via values using comparator interface.
+    Put sorted list in linkedHashMap .
+    Map is sorted by values
+
 
 Internal Function of HashMap
 =============================
