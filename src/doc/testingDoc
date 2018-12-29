@@ -1,0 +1,9 @@
+Mockito Framework
+==================
+
+1. Adding Behaviour
+    when().thenReturns()
+    add behaviour to mock objects
+
+2. Verify Behaviour
+    verify()  :- verify the added behaviour is get called with given argument

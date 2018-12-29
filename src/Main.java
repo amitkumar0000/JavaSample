@@ -11,17 +11,19 @@ import collectionFramework.CopyOnWriteArrayListDemo;
 import collectionFramework.IteratorsDemo;
 import collections.*;
 import exceptionhandler.*;
-import io.reactivex.FlowableSubscriber;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 import multithread.*;
 import nestedClass.AnonymousInnerClass;
 import nestedClass.LocalInnerClass;
 import nestedClass.StaticInnerClass;
-import org.reactivestreams.Subscription;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 import rxjavaDemo.*;
 import stream.StreamDemo;
+import testing.mockitoTesting.MathApplicationTesting.MathApplicationTester;
+import testing.mockitoTesting.PortfolioTesting.PortfolioTester;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -54,7 +56,10 @@ public class Main {
 
 //        annotationDemo();
 
-        rxjavaDemo();
+//        rxjavaDemo();
+
+        mockTesting();
+
 
 
 
@@ -68,6 +73,28 @@ public class Main {
 
         System.out.println("Hello World Exit");
 
+    }
+
+    public static void mockTesting(){
+        portfolioTester();
+        TestRunner();
+
+    }
+
+    private static void portfolioTester(){
+        PortfolioTester tester = new PortfolioTester();
+        tester.setUp();
+        System.out.println(tester.testMarketValue()?"pass":"fail");
+    }
+
+    private static void TestRunner(){
+        Result result = JUnitCore.runClasses(MathApplicationTester.class);
+
+        for (Failure failure : result.getFailures()) {
+            System.out.println("fail  "+failure.toString());
+        }
+
+        System.out.println("success "+result.wasSuccessful());
     }
 
     private static void multithreadDemo() {
