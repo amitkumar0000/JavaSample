@@ -7,3 +7,38 @@ Mockito Framework
 
 2. Verify Behaviour
     verify()  :- verify the added behaviour is get called with given argument
+
+3. Mockito : Exception Handling
+    /add the behavior to throw exception
+    doThrow(new Runtime Exception("divide operation not implemented"))
+       .when(calcService).add(10.0,20.0);
+
+4. Mockito provides Inorder class which takes care of the order of method calls
+    that the mock is going to make in due course of its action.
+
+5. Mockito provides a Answer interface which allows stubbing with generic interface.
+
+6. Mockito provides option to create spy on real objects.
+   When spy is called, then actual method of real object is called.
+
+7. Mockito provides the capability to a reset a mock so that it can be reused later.
+    Take a look at the following code snippet.
+
+8. Behavior Driven Development is a style of writing tests uses given,
+  when and then format as test methods. Mockito provides special methods to do so.
+  Take a look at the following code snippet.
+
+  //Given
+  given(calcService.add(20.0,10.0)).willReturn(30.0);
+
+  //when
+  double result = calcService.add(20.0,10.0);
+
+  //then
+  Assert.assertEquals(result,30.0,0);
+
+9. Mockito provides a special Timeout option to test if a method is called within stipulated time frame
+    //passes when add() is called within 100 ms.
+    verify(calcService,timeout(100)).add(20.0,10.0);
+
+
